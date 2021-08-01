@@ -1,0 +1,61 @@
+{
+  "name": "web-studio-react",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://IvanVA13.github.io/web-studio-react",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
+    "axios": "^0.21.1",
+    "eslint": "^7.32.0",
+    "gh-pages": "^3.2.3",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.3.2",
+    "prop-types": "^15.7.2",
+    "react-loader-spinner": "^4.0.0",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux-persist": "^6.0.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
+}

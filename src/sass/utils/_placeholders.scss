@@ -1,0 +1,27 @@
+// общие стили для ссылок
+%link {
+  text-decoration: none;
+}
+
+%d-block {
+  display: block;
+}
+
+%d-in-block {
+  display: inline-block;
+}
+
+// общие стили для списков
+%list {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+%title {
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  color: $title-text-color;
+}

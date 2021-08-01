@@ -1,0 +1,47 @@
+.socials {
+  @include centerFlexbox(inline-flex);
+  @extend %list;
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__link {
+    @extend %link, %d-block;
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+
+    text-align: center;
+    background-color: inherit;
+
+    border-radius: 50%;
+    transition: background-color $animation;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    background-color: $accent-color;
+  }
+
+  &__link--bg-color {
+    background-color: $soc-link-bg-color;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+
+    fill: $main-svg-fill;
+    transition: fill $animation;
+  }
+
+  &__icon--fill {
+    fill: $second-accent-color;
+  }
+
+  &__link:hover &__icon,
+  &__link:focus &__icon {
+    fill: $second-accent-color;
+  }
+}

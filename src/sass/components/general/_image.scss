@@ -1,0 +1,8 @@
+.image {
+  @extend %d-block;
+  width: 100%;
+  height: auto;
+  &--margin {
+    margin-bottom: 30px;
+  }
+}

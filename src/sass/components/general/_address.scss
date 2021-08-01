@@ -1,0 +1,19 @@
+.address {
+  color: inherit;
+  font-style: normal;
+  text-align: center;
+
+  &__location {
+    margin-top: 0;
+    margin-bottom: 9px;
+  }
+
+  &__contacts {
+    display: block;
+  }
+
+  &__contacts:hover,
+  &__contacts:focus {
+    color: $accent-color;
+  }
+}

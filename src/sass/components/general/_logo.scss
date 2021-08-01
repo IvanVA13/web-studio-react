@@ -1,0 +1,20 @@
+.logo {
+  color: $title-text-color;
+  font-family: $f-family-Ral;
+  @include fonts(700, 26px, 1.19);
+  @include for-size(mob-tab) {
+    @include fonts(700, 24px, 1.17);
+  }
+
+  text-decoration: none;
+  //Оформление лого в футере
+  &--white {
+    @extend %d-block;
+    margin-bottom: 20px;
+
+    color: inherit;
+  }
+  &__accent {
+    color: $accent-color;
+  }
+}

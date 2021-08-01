@@ -1,0 +1,53 @@
+.menu-mob {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  &__menu {
+    padding: 0;
+
+    background-color: transparent;
+    border: 0;
+  }
+
+  &__icon {
+    fill: $title-text-color;
+  }
+
+  &__icon:hover,
+  &__icon:focus {
+    fill: $accent-color;
+  }
+
+  &__menu &__icon-close {
+    display: none;
+  }
+
+  &__menu.is-open &__icon-close {
+    display: block;
+  }
+
+  &__menu.is-open &__icon-menu {
+    display: none;
+  }
+
+  &__container {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 99;
+
+    display: none;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    text-align: center;
+
+    background-color: $second-accent-color;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
+      0px 1px 3px rgba(0, 0, 0, 0.16);
+  }
+  .is-open {
+    display: block;
+  }
+}

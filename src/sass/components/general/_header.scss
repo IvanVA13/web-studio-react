@@ -1,0 +1,38 @@
+.header {
+  position: relative;
+  border-bottom: 1px solid $line-header-color;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    @extend %list;
+    @include for-size(mobile-only) {
+      justify-content: space-between;
+      height: 60px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+  }
+
+  &__item:nth-child(1) {
+    @include for-size(desktop) {
+      margin-right: 93px;
+    }
+
+    @include for-size(tablet) {
+      margin-right: 88px;
+    }
+  }
+
+  &__item:last-child {
+    @include for-size(tablet) {
+      margin-left: auto;
+    }
+  }
+
+  &__item:nth-child(n + 3) {
+    @include for-size(mobile-only) {
+      display: none;
+    }
+  }
+}

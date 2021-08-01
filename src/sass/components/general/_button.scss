@@ -1,0 +1,11 @@
+.button {
+  @extend %d-in-block;
+  padding: 6px 22px;
+
+  border: 0;
+  border-radius: 4px;
+
+  &__icon {
+    margin-left: 10px;
+  }
+}

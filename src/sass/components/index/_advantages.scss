@@ -1,0 +1,91 @@
+//Оформление списка особенностей компании
+.advantages {
+  display: flex;
+  @include for-size(mob-tab) {
+    flex-wrap: wrap;
+  }
+
+  @extend %list;
+
+  //Оформление элементов списка особенностей компании
+  &__item {
+    @include for-size(mobile-only) {
+      width: 100%;
+    }
+    @include for-size(tablet-only) {
+      width: calc((100% - 30px) / 2);
+    }
+    @include for-size(desktop) {
+      width: calc((100% - 90px) / 4);
+    }
+  }
+
+  //Оформление иконок особенностей компании
+  &__item::before {
+    @extend %d-block;
+    margin-bottom: 30px;
+    content: '';
+    @include for-size(tablet-only) {
+      width: 354px;
+    }
+    @include for-size(desktop) {
+      width: 270px;
+    }
+
+    height: 120px;
+
+    background-color: $button-secondary-bg-color;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
+  }
+
+  &__item:nth-child(1)::before {
+    background-image: url('../../../images/icon/icon-antenna.svg');
+  }
+
+  &__item:nth-child(2)::before {
+    background-image: url('../../../images/icon/icon-clock.svg');
+  }
+
+  &__item:nth-child(3)::before {
+    background-image: url('../../../images/icon/icon-diagram.svg');
+  }
+
+  &__item:nth-child(4)::before {
+    background-image: url('../../../images/icon/icon-astronaut.svg');
+  }
+
+  &__item:nth-child(2n + 1) {
+    @include for-size(tablet-only) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:nth-child(-n + 2) {
+    @include for-size(tablet-only) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item:not(:last-child) {
+    @include for-size(mobile-only) {
+      margin-bottom: 30px;
+    }
+    @include for-size(desktop) {
+      margin-right: 30px;
+    }
+  }
+
+  //Оформление заголовков секции особенности компании
+  &__title {
+    @extend %title;
+    @include fonts(700, inherit);
+
+    text-transform: uppercase;
+  }
+  //Оформление параграфов особенности компании
+  &__desc {
+    margin: 0;
+  }
+}

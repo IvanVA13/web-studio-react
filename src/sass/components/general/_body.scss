@@ -1,0 +1,5 @@
+body {
+  color: $main-text-color;
+  font-family: $f-family-Rob, $f-family-Ral, sans-serif;
+  @include fonts($fc: 14px, $lh: 1.71);
+}

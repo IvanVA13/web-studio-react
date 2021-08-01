@@ -1,0 +1,40 @@
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  @extend %list;
+
+  text-align: center;
+
+  &__item {
+    @include for-size(mobile-only) {
+      width: 100%;
+    }
+    @include for-size(tablet-only) {
+      width: calc((100% - 30px) / 2);
+    }
+    @include for-size(desktop) {
+      width: calc((100% - 90px) / 4);
+    }
+  }
+
+  &__item:not(:last-child) {
+    @include for-size(mobile-only) {
+      margin-bottom: 30px;
+    }
+    @include for-size(desktop) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:nth-child(2n + 1) {
+    @include for-size(tablet-only) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:nth-child(-n + 2) {
+    @include for-size(tablet-only) {
+      margin-bottom: 30px;
+    }
+  }
+}

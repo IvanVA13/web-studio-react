@@ -1,0 +1,79 @@
+.clients {
+  @include centerFlexbox(inline-flex);
+  flex-wrap: wrap;
+  @extend %list;
+
+  &__item {
+    display: block;
+    @include for-size(mobile-only) {
+      min-width: 210px;
+    }
+    @include for-size(mobile-s) {
+      min-width: 130px;
+    }
+    @include for-size(tablet-only) {
+      min-width: 226px;
+    }
+    @include for-size(desktop) {
+      min-width: 170px;
+    }
+  }
+
+  &__item:nth-child(2n + 1) {
+    @include for-size(mobile-only) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:nth-child(-n + 4) {
+    @include for-size(mobile-only) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item:not(:nth-child(3n)) {
+    @include for-size(tablet-only) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:nth-child(-n + 3) {
+    @include for-size(tablet-only) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item:not(:last-child) {
+    @include for-size(desktop) {
+      margin-right: 30px;
+    }
+  }
+
+  &__link {
+    @include centerFlexbox();
+    @extend %link;
+    height: 90px;
+
+    background-color: $second-accent-color;
+    border: 1px solid $main-svg-fill;
+    border-radius: 4px;
+
+    transition: border-color $animation;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    border-color: $accent-color;
+    outline-color: $accent-color;
+  }
+
+  &__icon {
+    fill: $main-svg-fill;
+    transition: fill $animation;
+  }
+
+  &__link:hover &__icon,
+  &__link:focus &__icon {
+    fill: $accent-color;
+  }
+}

@@ -1,0 +1,54 @@
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  @include for-size(desktop) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+
+  &--pad-top {
+    padding-top: 0;
+  }
+
+  &--hidden {
+    @include for-size(mob-tab) {
+      display: none;
+    }
+  }
+
+  &__list {
+    @extend %list;
+  }
+
+  &--bg-color {
+    background-color: $button-secondary-bg-color;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 50px;
+
+    color: $title-text-color;
+    @include fonts(700, 28px, 1.18);
+    @include for-size(desktop) {
+      @include fonts(700, 36px, 1.17);
+    }
+
+    text-align: center;
+  }
+
+  &__title--hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 50px;
+  }
+}

@@ -1,0 +1,117 @@
+.portfolio {
+  @include for-size(mob-tab) {
+    display: flex;
+  }
+
+  @include for-size(desktop) {
+    @include centerFlexbox();
+  }
+  @extend %list;
+  flex-wrap: wrap;
+
+  &__item {
+    width: 100%;
+    @include for-size(tablet-only) {
+      width: calc((100% - 30px) / 2);
+    }
+
+    @include for-size(desktop) {
+      width: calc((100% - 60px) / 3);
+    }
+  }
+
+  &__item:not(:last-child) {
+    @include for-size(mobile-only) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item:not(:nth-child(2n)) {
+    @include for-size(tablet-only) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:not(:nth-last-child(-n + 1)) {
+    @include for-size(tablet-only) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item:not(:nth-child(3n)) {
+    @include for-size(desktop) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:not(:nth-last-child(-n + 3)) {
+    @include for-size(desktop) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    @extend %link, %d-block;
+
+    background-color: $second-accent-color;
+    border: 1px solid #eeeeee;
+    transition: box-shadow $animation;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  &__link:visited {
+    color: currentColor;
+  }
+
+  &__container {
+    position: relative;
+    overflow: hidden;
+
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    @extend %d-block;
+    margin: 0;
+    padding: 63px 24px;
+    width: 370px;
+    height: 294px;
+
+    color: $second-accent-color;
+    @include fonts($fc: 18px, $lh: 1.56);
+
+    background-color: $portfolio-bg-color;
+    transition: top $animation;
+  }
+
+  &__link:hover &__description,
+  &__link:focus &__description {
+    top: 0;
+  }
+
+  &__title {
+    @extend %title;
+    margin-bottom: 4px;
+    padding-left: 24px;
+
+    @include fonts(700, 18px, 2, 0.06em);
+  }
+
+  &__type-work {
+    margin: 0;
+    padding-bottom: 20px;
+    padding-left: 24px;
+
+    font-size: 16px;
+    line-height: 1.87;
+  }
+}

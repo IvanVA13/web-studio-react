@@ -1,0 +1,77 @@
+.contacts {
+  @include centerFlexbox(inline-flex);
+  @extend %list;
+
+  @include for-size(mob-tab) {
+    display: inline-block;
+  }
+
+  &__item--margin:not(:last-child) {
+    @include for-size(mobile-only) {
+      margin-bottom: 16px;
+    }
+
+    @include for-size(desktop) {
+      margin-right: 50px;
+    }
+  }
+
+  &__item--footer:not(:last-child) {
+    margin-bottom: 9px;
+  }
+
+  &__link {
+    @extend %link;
+    display: flex;
+    align-items: center;
+    @include for-size(mobile-only) {
+      justify-content: center;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    color: $main-text-color;
+    @include fonts(500, inherit, $ls: 0.02em);
+    @include for-size(mobile-only) {
+      @include fonts(500, 18px, 1.17, 0.02em);
+    }
+    @include for-size(tablet-only) {
+      @include fonts(500, 12px, 1.17, 0.02em);
+    }
+
+    transition: color $animation;
+  }
+
+  &__link--footer {
+    padding: 0;
+    @include for-size(mob-tab) {
+      justify-content: center;
+    }
+
+    color: $contacts-footer-color;
+    @include fonts($fc: inherit, $lh: 1.71);
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: $accent-color;
+  }
+
+  &__icon {
+    margin-right: 10px;
+
+    fill: $main-text-color;
+    transition: fill $animation;
+  }
+
+  &__icon--hide {
+    display: none;
+  }
+
+  &__link:hover &__icon,
+  &__link:focus &__icon {
+    fill: $accent-color;
+  }
+}

@@ -1,0 +1,62 @@
+.footer {
+  background-color: $bg-color;
+  @include for-size(mob-tab) {
+    text-align: center;
+  }
+
+  &__container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    color: $second-accent-color;
+  }
+
+  &__list {
+    @extend %list;
+
+    @include for-size(tablet-only) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    @include for-size(desktop) {
+      display: inline-flex;
+      align-items: flex-start;
+    }
+  }
+
+  &__item:last-child {
+    flex-grow: 1;
+  }
+
+  &__item:not(:last-child) {
+    @include for-size(mob-tab) {
+      margin-bottom: 60px;
+    }
+
+    @include for-size(desktop) {
+      margin-right: 70px;
+    }
+  }
+
+  &__title {
+    @extend %title;
+    margin-bottom: 20px;
+    padding-top: 12px;
+    @include for-size(tablet-only) {
+      padding-top: 0;
+    }
+
+    color: inherit;
+    @include fonts(700, 14px);
+    text-transform: uppercase;
+  }
+
+  &__form {
+    @include for-size(desktop) {
+      @include centerFlexbox();
+    }
+  }
+}
