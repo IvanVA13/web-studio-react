@@ -102,6 +102,9 @@
 
   &__terms-field {
     @include centerFlexbox();
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 30px;
 
     @include for-size(mob-tab) {
@@ -112,6 +115,8 @@
   &__terms-link {
     position: relative;
     @extend %link;
+    margin-left: 5px;
+
     color: $accent-color;
   }
 
@@ -175,9 +180,18 @@
     transition: background-color $animation;
   }
 
+  &__button:disabled {
+    background-color: $main-text-color;
+  }
+
   .modal &__button:hover,
   .modal &__button:focus {
     background-color: #188ce8;
+  }
+
+  .modal &__button:disabled:hover,
+  .modal &__button:disabled:hover {
+    background-color: $main-text-color;
   }
 
   &__button--footer {

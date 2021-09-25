@@ -84,6 +84,9 @@
     margin: 0;
     padding: 63px 24px;
     width: 370px;
+    @include for-size(mobile-only) {
+      width: 450px;
+    }
     height: 294px;
 
     color: $second-accent-color;

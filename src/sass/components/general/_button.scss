@@ -1,7 +1,7 @@
 .button {
   @extend %d-in-block;
   padding: 6px 22px;
-
+  cursor: pointer;
   border: 0;
   border-radius: 4px;
 

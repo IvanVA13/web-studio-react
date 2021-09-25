@@ -1,4 +1,5 @@
 const routes = {
+  basename: '/web-studio-react',
   home: '/',
   portfolio: '/portfolio',
   orders: '/orders',

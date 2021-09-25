@@ -1,7 +1,14 @@
 .header {
   position: relative;
   border-bottom: 1px solid $line-header-color;
-
+  @include for-size(mobile-only) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: $second-accent-color;
+  }
   &__container {
     display: flex;
     align-items: center;

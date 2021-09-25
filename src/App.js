@@ -4,6 +4,7 @@ import { Suspense, lazy } from 'react';
 // import { useEffect } from 'react';
 
 import AppBar from './components/AppBar';
+import Footer from './components/Footer';
 import routes from './routes';
 // import { getCurrentUser } from './redux/auth';
 import { PrivateRoute, PublicRoute } from './components/RoutesHOC';
@@ -17,6 +18,12 @@ const ContactsPage = lazy(() =>
 );
 const PortfolioPage = lazy(() =>
   import('./views/PortfolioPage' /* webpackChunkName: "portfolio-page" */),
+);
+
+const PortfolioListPage = lazy(() =>
+  import(
+    './views/PortfolioListPage' /* webpackChunkName: "portfolio-list-page" */
+  ),
 );
 // const LogInPage = lazy(() =>
 //   import('./views/LogInPage' /* webpackChunkName: "login-page" */),
@@ -36,22 +43,26 @@ function App() {
         <PublicRoute exact path={routes.home}>
           <HomePage />
         </PublicRoute>
-        <PublicRoute path={routes.portfolio}>
+        <PublicRoute path={`${routes.portfolio}/:id`}>
           <PortfolioPage />
+        </PublicRoute>
+        <PublicRoute path={routes.portfolio}>
+          <PortfolioListPage />
         </PublicRoute>
         <PublicRoute path={routes.contacts}>
           <ContactsPage />
         </PublicRoute>
         {/* <PublicRoute path={routes.logIn} restricted>
           <LogInPage />
-        </PublicRoute>
-        <PublicRoute path={routes.register} restricted>
+          </PublicRoute>
+          <PublicRoute path={routes.register} restricted>
           <RegisterPage />
         </PublicRoute> */}
         <PrivateRoute path={routes.orders}>
           <OrdersPage />
         </PrivateRoute>
       </Switch>
+      <Footer />
     </Suspense>
   );
 }
