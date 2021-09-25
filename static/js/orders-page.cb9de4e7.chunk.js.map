@@ -1,0 +1,1 @@
+{"version":3,"sources":["views/OrdersPage.js"],"names":["OrdersPage"],"mappings":"6IAEeA,UAFI,kBAAM","file":"static/js/orders-page.cb9de4e7.chunk.js","sourcesContent":["const OrdersPage = () => <h1>This is orders page</h1>;\n\nexport default OrdersPage;\n"],"sourceRoot":""}

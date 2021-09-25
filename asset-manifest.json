@@ -1,0 +1,34 @@
+{
+  "files": {
+    "contacts-page.js": "/web-studio-react/static/js/contacts-page.ce9c9178.chunk.js",
+    "contacts-page.js.map": "/web-studio-react/static/js/contacts-page.ce9c9178.chunk.js.map",
+    "home-page.js": "/web-studio-react/static/js/home-page.3f55a848.chunk.js",
+    "home-page.js.map": "/web-studio-react/static/js/home-page.3f55a848.chunk.js.map",
+    "main.css": "/web-studio-react/static/css/main.82e82438.chunk.css",
+    "main.js": "/web-studio-react/static/js/main.94d20ce6.chunk.js",
+    "main.js.map": "/web-studio-react/static/js/main.94d20ce6.chunk.js.map",
+    "orders-page.js": "/web-studio-react/static/js/orders-page.cb9de4e7.chunk.js",
+    "orders-page.js.map": "/web-studio-react/static/js/orders-page.cb9de4e7.chunk.js.map",
+    "portfolio-list-page.js": "/web-studio-react/static/js/portfolio-list-page.37073c45.chunk.js",
+    "portfolio-list-page.js.map": "/web-studio-react/static/js/portfolio-list-page.37073c45.chunk.js.map",
+    "portfolio-page.js": "/web-studio-react/static/js/portfolio-page.df0332c8.chunk.js",
+    "portfolio-page.js.map": "/web-studio-react/static/js/portfolio-page.df0332c8.chunk.js.map",
+    "runtime-main.js": "/web-studio-react/static/js/runtime-main.135aa83d.js",
+    "runtime-main.js.map": "/web-studio-react/static/js/runtime-main.135aa83d.js.map",
+    "static/css/7.bc922b9c.chunk.css": "/web-studio-react/static/css/7.bc922b9c.chunk.css",
+    "static/js/7.84ff39e0.chunk.js": "/web-studio-react/static/js/7.84ff39e0.chunk.js",
+    "static/js/7.84ff39e0.chunk.js.map": "/web-studio-react/static/js/7.84ff39e0.chunk.js.map",
+    "index.html": "/web-studio-react/index.html",
+    "static/css/7.bc922b9c.chunk.css.map": "/web-studio-react/static/css/7.bc922b9c.chunk.css.map",
+    "static/css/main.82e82438.chunk.css.map": "/web-studio-react/static/css/main.82e82438.chunk.css.map",
+    "static/js/7.84ff39e0.chunk.js.LICENSE.txt": "/web-studio-react/static/js/7.84ff39e0.chunk.js.LICENSE.txt",
+    "static/media/styles.scss": "/web-studio-react/static/media/overlay@2x.672ddc91.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.135aa83d.js",
+    "static/css/7.bc922b9c.chunk.css",
+    "static/js/7.84ff39e0.chunk.js",
+    "static/css/main.82e82438.chunk.css",
+    "static/js/main.94d20ce6.chunk.js"
+  ]
+}
