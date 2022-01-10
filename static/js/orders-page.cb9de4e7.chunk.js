@@ -1,2 +1,0 @@
-(this["webpackJsonpweb-studio-react"]=this["webpackJsonpweb-studio-react"]||[]).push([[3],{92:function(e,s,t){"use strict";t.r(s);var i=t(1);s.default=function(){return Object(i.jsx)("h1",{children:"This is orders page"})}}}]);
-//# sourceMappingURL=orders-page.cb9de4e7.chunk.js.map
