@@ -1,0 +1,82 @@
+@import '../../sass/utils/mixins';
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+
+.user-menu {
+  @include for-size(tablet) {
+    position: absolute;
+    top: 59px;
+    right: 0;
+    padding: 10px;
+    width: 225px;
+    background-color: $second-accent-color;
+    border-radius: 4px;
+    box-shadow: (2px 2px 2px 2px rgba(0, 0, 0, 0.15));
+    z-index: 50;
+    transition: box-shadow $animation;
+
+    &:hover {
+      box-shadow: (4px 4px 4px 4px rgba(0, 0, 0, 0.15));
+    }
+  }
+
+  &-list {
+    @extend %d-block;
+    @extend %list;
+    @include for-size(tablet) {
+      @include centerFlexbox();
+      padding-left: 10px;
+    }
+    flex-wrap: wrap;
+  }
+
+  &-item {
+    @include for-size(tablet) {
+      width: 100%;
+      transition: background-color $animation;
+
+      &:hover {
+        background-color: $portfolio-bg-color;
+      }
+    }
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+
+  &-title {
+    @include for-size(tablet) {
+      @include fonts($fv: 500, $fc: 14px, $lh: 1.2);
+    }
+    @include fonts(500, 18px, 1.17, 0.02em);
+    color: $title-text-color;
+  }
+
+  &-icon {
+    margin-right: 5px;
+    color: $title-text-color;
+  }
+
+  &-link {
+    @include for-size(mobile-only) {
+      justify-content: center;
+    }
+    @extend %link;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &-btn {
+    @include for-size(mobile-only) {
+      justify-content: center;
+    }
+    @extend %list;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    cursor: pointer;
+  }
+}

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import routes from '../../routes';
 import Navigation from '../Navigation';
 import Contacts from '../Contacts';
+import UserMenu from '../UserMenu';
 
 const other = {
   menu: `${routes.basename}/images/icon/sprite.svg#icon-menu`,
@@ -52,6 +53,7 @@ const MenuMob = () => {
         >
           <Navigation />
           <Contacts />
+          <UserMenu />
         </div>
       </div>
     </div>

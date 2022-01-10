@@ -1,43 +1,41 @@
 import shortid from 'shortid';
 
-import routes from '../../routes';
-
 const idGen = () => shortid.generate();
 const examples = [
   {
     'pic-source': [
       {
-        desktop: `${routes.basename}/images/examples/desktop/img1.webp 1x, web-studio-react/images/examples/desktop/img1@2x.webp 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/img1.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/img1_2x.webp 2x`,
       },
       {
-        desktop: `${routes.basename}/images/examples/desktop/img1.jpg 1x, web-studio-react/images/examples/desktop/img1@2x.jpg 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img1.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img1_2x.jpg 2x`,
       },
     ],
-    image: `${routes.basename}/images/examples/desktop/img1.jpg`,
+    image: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img1.jpg`,
     name: 'Десктопные приложения',
   },
   {
     'pic-source': [
       {
-        desktop: `${routes.basename}/images/examples/desktop/img2.webp 1x, web-studio-react/images/examples/desktop/img2@2x.webp 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/img2.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/img2_2x.webp 2x`,
       },
       {
-        desktop: `${routes.basename}/images/examples/desktop/img2.jpg 1x, web-studio-react/images/examples/desktop/img2@2x.jpg 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img2.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img2_2x.jpg 2x`,
       },
     ],
-    image: `${routes.basename}/images/examples/desktop/img2.jpg`,
+    image: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img2.jpg`,
     name: 'Мобильные приложения',
   },
   {
     'pic-source': [
       {
-        desktop: `${routes.basename}/images/examples/desktop/img3.webp 1x, web-studio-react/images/examples/desktop/img3@2x.webp 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/img3.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/img3_2x.webp 2x`,
       },
       {
-        desktop: `${routes.basename}/images/examples/desktop/img3.jpg 1x, web-studio-react/images/examples/desktop/img3@2x.jpg 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img3.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img3_2x.jpg 2x`,
       },
     ],
-    image: `${routes.basename}/images/examples/desktop/img3.jpg`,
+    image: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/img3.jpg`,
     name: 'Дизайнерские решения',
   },
 ];

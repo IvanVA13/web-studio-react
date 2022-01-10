@@ -1,5 +1,5 @@
 .menu-mob {
-  @media screen and (min-width: 768px) {
+  @include for-size(tablet) {
     display: none;
   }
   &__menu {
@@ -52,7 +52,7 @@
 
     display: none;
     width: 100%;
-    padding-top: 60px;
+    padding-top: 20px;
     padding-bottom: 60px;
 
     text-align: center;

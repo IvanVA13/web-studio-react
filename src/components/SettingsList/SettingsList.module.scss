@@ -1,0 +1,139 @@
+@import '../../sass/utils/mixins';
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  // margin-top: 10px;
+  // margin-right: auto;
+  // margin-bottom: 10px;
+  // margin-left: auto;
+  padding: 20px;
+  width: 400px;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  &:not(:nth-last-child(-n + 2)) {
+    margin-bottom: 10px;
+  }
+  &:not(:nth-last-child(2n + 1)) {
+    margin-right: 10px;
+  }
+
+  &-title {
+    @extend %title;
+    width: 100%;
+
+    text-align: center;
+  }
+}
+
+.form-main-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.form-btn {
+  width: 85px;
+  height: 30px;
+
+  color: $second-accent-color;
+  @include fonts(700, $lh: 1.2, $ls: 0.06em);
+
+  background-color: $accent-color;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow $animation;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.form-label {
+  display: flex;
+  justify-content: space-between;
+  @include fonts($fc: 12px, $lh: 1.17, $ls: 0.01em);
+
+  &__radio {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.form-radio-btn {
+  margin-right: 5px;
+}
+
+.form-input {
+  padding-left: 10px;
+  width: 280px;
+  height: 30px;
+
+  border: 1px solid $form-input-color;
+  border-radius: 4px;
+  &::placeholder {
+    color: $placeholder-color;
+  }
+}
+
+.form-error {
+  @include fonts($fc: 12px, $lh: 1.17, $ls: 0.01em);
+  color: red;
+}
+
+.field__wrapper {
+  width: 100%;
+  position: relative;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.field__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.field__file-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.field__file-fake {
+  height: 60px;
+  width: calc(100% - 130px);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border: 1px solid #c7c7c7;
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.field__file-button {
+  width: 130px;
+  height: 60px;
+  background: #1bbc9b;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}

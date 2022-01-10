@@ -25,14 +25,17 @@ const PortfolioListPage = lazy(() =>
     './views/PortfolioListPage' /* webpackChunkName: "portfolio-list-page" */
   ),
 );
-// const LogInPage = lazy(() =>
-//   import('./views/LogInPage' /* webpackChunkName: "login-page" */),
-// );
-// const RegisterPage = lazy(() =>
-//   import('./views/RegisterPage' /* webpackChunkName: "register-page" */),
-// );
+const LogInPage = lazy(() =>
+  import('./views/LogInPage' /* webpackChunkName: "login-page" */),
+);
+const RegisterPage = lazy(() =>
+  import('./views/RegisterPage' /* webpackChunkName: "register-page" */),
+);
 const OrdersPage = lazy(() =>
   import('./views/OrdersPage' /* webpackChunkName: "orders-page" */),
+);
+const SettingsPage = lazy(() =>
+  import('./views/SettingsPage' /* webpackChunkName: "settings-page" */),
 );
 
 function App() {
@@ -52,12 +55,15 @@ function App() {
         <PublicRoute path={routes.contacts}>
           <ContactsPage />
         </PublicRoute>
-        {/* <PublicRoute path={routes.logIn} restricted>
+        <PublicRoute path={routes.login} restricted>
           <LogInPage />
-          </PublicRoute>
-          <PublicRoute path={routes.register} restricted>
+        </PublicRoute>
+        <PublicRoute path={routes.register} restricted>
           <RegisterPage />
-        </PublicRoute> */}
+        </PublicRoute>
+        <PrivateRoute path={routes.settings}>
+          <SettingsPage />
+        </PrivateRoute>
         <PrivateRoute path={routes.orders}>
           <OrdersPage />
         </PrivateRoute>

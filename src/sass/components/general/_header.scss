@@ -31,9 +31,15 @@
     }
   }
 
-  &__item:last-child {
+  &__item:nth-last-child(2) {
     @include for-size(tablet) {
       margin-left: auto;
+    }
+  }
+
+  &__item:last-child {
+    @include for-size(tablet) {
+      position: relative;
     }
   }
 
@@ -41,5 +47,17 @@
     @include for-size(mobile-only) {
       display: none;
     }
+  }
+  &__button {
+    display: flex;
+    margin-left: 10px;
+    width: 35px;
+    padding: 0;
+  }
+  &-guest-icon {
+    width: 100%;
+    height: 100%;
+    color: $main-text-color;
+    background-color: $second-accent-color;
   }
 }

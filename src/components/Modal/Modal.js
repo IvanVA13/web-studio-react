@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { useCallback } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+
 import { createPortal } from 'react-dom';
 
 import routes from '../../routes';

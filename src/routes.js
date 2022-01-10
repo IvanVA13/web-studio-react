@@ -4,8 +4,9 @@ const routes = {
   portfolio: '/portfolio',
   orders: '/orders',
   contacts: '/contacts',
-  logIn: '/logIn',
+  login: '/login',
   register: '/register',
+  settings: '/settings',
 };
 
 export default routes;

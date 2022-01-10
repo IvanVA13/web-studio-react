@@ -8,37 +8,37 @@
   }
 
   background-image: linear-gradient(to right, $hero-bg, $hero-bg),
-    url('../../../images/hero/mobile/overlay.jpg');
+    url('https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/overlay.jpg');
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     background-image: linear-gradient(to right, $hero-bg, $hero-bg),
-      url('../../../images/hero/mobile/overlay@2x.jpg');
+      url('https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/overlay_2x.jpg');
   }
   @include for-size(tablet) {
     background-image: linear-gradient(to right, $hero-bg, $hero-bg),
-      url('../../../images/hero/tablet/overlay.jpg');
+      url('https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/overlay.jpg');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (-webkit-min-device-pixel-ratio: 2),
       screen and (-o-min-device-pixel-ratio: 2/1),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, $hero-bg, $hero-bg),
-        url('../../../images/hero/tablet/overlay@2x.jpg');
+        url('https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/overlay_2x.jpg');
     }
   }
   @include for-size(desktop) {
     background-image: linear-gradient(to right, $hero-bg, $hero-bg),
-      url('../../../images/hero/desktop/overlay.jpg');
+      url('https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/overlay.jpg');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (-webkit-min-device-pixel-ratio: 2),
       screen and (-o-min-device-pixel-ratio: 2/1),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, $hero-bg, $hero-bg),
-        url('../../../images/hero/desktop/overlay@2x.jpg');
+        url('https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/overlay_2x.jpg');
     }
   }
   background-repeat: no-repeat;

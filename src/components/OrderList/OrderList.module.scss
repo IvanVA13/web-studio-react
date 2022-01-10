@@ -1,0 +1,100 @@
+@import '../../sass/utils/mixins';
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.order-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.order-title {
+  @extend %title;
+  text-align: center;
+}
+
+.order-list {
+  @extend %list;
+  border: 1px solid $form-input-color;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.order-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding: 15px;
+  width: 100%;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $placeholder-color;
+  }
+}
+
+.order-date {
+  @include for-size(desktop) {
+    @include orders-width(desktop, 45px, 7px);
+  }
+
+  margin-right: 15px;
+}
+
+.order-comment {
+  @include for-size(desktop) {
+    @include orders-width(desktop, 45px, 70px);
+  }
+  margin-right: 15px;
+}
+
+.order-status {
+  @include for-size(desktop) {
+    @include orders-width(desktop, 45px, 8px);
+  }
+  margin-right: 15px;
+  text-align: center;
+  color: $second-accent-color;
+  border-radius: 4px;
+
+  &-new {
+    background-color: orange;
+  }
+  &-done {
+    background-color: green;
+  }
+  &-cancel {
+    background-color: tomato;
+  }
+}
+
+.order-btn {
+  @include for-size(desktop) {
+    @include orders-width(desktop, 45px, 15px);
+  }
+  @extend %d-in-block;
+
+  padding: 6px 22px;
+
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  color: $second-accent-color;
+
+  background-color: $accent-color;
+  transition: box-shadow $animation;
+
+  &:disabled {
+    cursor: inherit;
+    background-color: $placeholder-color;
+  }
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}

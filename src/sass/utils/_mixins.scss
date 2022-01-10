@@ -45,3 +45,17 @@
     }
   }
 }
+
+@mixin orders-width($range, $marg, $part) {
+  $mobile: 418px -$marg;
+  $tablet: 706px -$marg;
+  $desktop: 1138px -$marg;
+  $del: 100px;
+  @if $range == mobile {
+    width: #{$mobile / $del * $part};
+  } @else if $range == tablet {
+    width: #{$tablet / $del * $part};
+  } @else if $range == desktop {
+    width: #{$desktop / $del * $part};
+  }
+}

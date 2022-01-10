@@ -1,6 +1,5 @@
 import shortid from 'shortid';
 
-import routes from '../../routes';
 import Socials from '../Socials';
 
 const idGen = () => shortid.generate();
@@ -9,17 +8,17 @@ const team = [
   {
     name: 'Игорь Демьяненко',
     prof: 'Product Designer',
-    image: `${routes.basename}/images/team/desktop/igor-demyanenko.jpg`,
+    image: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/igor-demyanenko.jpg`,
     'pic-source': [
       {
-        desktop: `${routes.basename}/images/team/desktop/igor-demyanenko.webp 1x, ./images/team/desktop/igor-demyanenko@2x.webp 2x`,
-        tablet: `${routes.basename}/images/team/tablet/igor-demyanenko.webp 1x, ./images/team/tablet/igor-demyanenko@2x.webp 2x`,
-        mobile: `${routes.basename}/images/team/mobile/igor-demyanenko.webp 1x, ./images/team/mobile/igor-demyanenko@2x.webp 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/igor-demyanenko.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/igor-demyanenko_2x.webp 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/igor-demyanenko.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/igor-demyanenko_2x.webp 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/igor-demyanenko.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/igor-demyanenko_2x.webp 2x`,
       },
       {
-        desktop: `${routes.basename}/images/team/desktop/igor-demyanenko.jpg 1x, ./images/team/desktop/igor-demyanenko@2x.jpg 2x`,
-        tablet: `${routes.basename}/images/team/tablet/igor-demyanenko.jpg 1x, ./images/team/tablet/igor-demyanenko@2x.jpg 2x`,
-        mobile: `${routes.basename}/images/team/mobile/igor-demyanenko.jpg 1x, ./images/team/mobile/igor-demyanenko@2x.jpg 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/igor-demyanenko.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/igor-demyanenko_2x.jpg 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/igor-demyanenko.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/igor-demyanenko_2x.jpg 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/igor-demyanenko.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/igor-demyanenko_2x.jpg 2x`,
       },
     ],
     'soc-link': [
@@ -32,17 +31,17 @@ const team = [
   {
     name: 'Ольга Репина',
     prof: 'Frontend Developer',
-    image: `${routes.basename}/images/team/desktop/olga-repina.jpg`,
+    image: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/olga-repina.jpg`,
     'pic-source': [
       {
-        desktop: `${routes.basename}/images/team/desktop/olga-repina.webp 1x, ./images/team/desktop/olga-repina@2x.webp 2x`,
-        tablet: `${routes.basename}/images/team/tablet/olga-repina.webp 1x, ./images/team/tablet/olga-repina@2x.webp 2x`,
-        mobile: `${routes.basename}/images/team/mobile/olga-repina.webp 1x, ./images/team/mobile/olga-repina@2x.webp 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/olga-repina.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/olga-repina_2x.webp 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/olga-repina.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/olga-repina_2x.webp 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/olga-repina.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/olga-repina_2x.webp 2x`,
       },
       {
-        desktop: `${routes.basename}/images/team/desktop/olga-repina.jpg 1x, ./images/team/desktop/olga-repina@2x.jpg 2x`,
-        tablet: `${routes.basename}/images/team/tablet/olga-repina.jpg 1x, ./images/team/tablet/olga-repina@2x.jpg 2x`,
-        mobile: `${routes.basename}/images/team/mobile/olga-repina.jpg 1x, ./images/team/mobile/olga-repina@2x.jpg 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/olga-repina.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/olga-repina_2x.jpg 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/olga-repina.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/olga-repina_2x.jpg 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/olga-repina.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/olga-repina_2x.jpg 2x`,
       },
     ],
     'soc-link': [
@@ -55,17 +54,17 @@ const team = [
   {
     name: 'Николай Тарасов',
     prof: 'Marketing',
-    image: `${routes.basename}/images/team/desktop/nicolai-tarasov.jpg.jpg`,
+    image: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/nicolai-tarasov.jpg.jpg`,
     'pic-source': [
       {
-        desktop: `${routes.basename}/images/team/desktop/nicolai-tarasov.webp 1x, ./images/team/desktop/nicolai-tarasov@2x.webp 2x`,
-        tablet: `${routes.basename}/images/team/tablet/nicolai-tarasov.webp 1x, ./images/team/tablet/nicolai-tarasov@2x.webp 2x`,
-        mobile: `${routes.basename}/images/team/mobile/nicolai-tarasov.webp 1x, ./images/team/mobile/nicolai-tarasov@2x.webp 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/nicolai-tarasov.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/nicolai-tarasov_2x.webp 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/nicolai-tarasov.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/nicolai-tarasov_2x.webp 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/nicolai-tarasov.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/nicolai-tarasov_2x.webp 2x`,
       },
       {
-        desktop: `${routes.basename}/images/team/desktop/nicolai-tarasov.jpg 1x, ./images/team/desktop/nicolai-tarasov.jpg@2x.jpg 2x`,
-        tablet: `${routes.basename}/images/team/tablet/nicolai-tarasov.jpg.jpg 1x, ./images/team/tablet/nicolai-tarasov.jpg@2x.jpg 2x`,
-        mobile: `${routes.basename}/images/team/mobile/nicolai-tarasov.jpg.jpg 1x, ./images/team/mobile/nicolai-tarasov.jpg@2x.jpg 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/nicolai-tarasov.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/nicolai-tarasov.jpg_2x.jpg 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/nicolai-tarasov.jpg.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/nicolai-tarasov.jpg_2x.jpg 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/nicolai-tarasov.jpg.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/nicolai-tarasov.jpg_2x.jpg 2x`,
       },
     ],
     'soc-link': [
@@ -78,17 +77,17 @@ const team = [
   {
     name: 'Михаил Ермаков',
     prof: 'UI Designer',
-    image: `${routes.basename}/images/team/desktop/michail-ermakov.jpg`,
+    image: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/michail-ermakov.jpg`,
     'pic-source': [
       {
-        desktop: `${routes.basename}/images/team/desktop/michail-ermakov.webp 1x, ./images/team/desktop/michail-ermakov@2x.webp 2x`,
-        tablet: `${routes.basename}/images/team/tablet/michail-ermakov.webp 1x, ./images/team/tablet/michail-ermakov@2x.webp 2x`,
-        mobile: `${routes.basename}/images/team/mobile/michail-ermakov.webp 1x, ./images/team/mobile/michail-ermakov@2x.webp 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/michail-ermakov.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/desktop/michail-ermakov_2x.webp 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/michail-ermakov.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/tablet/michail-ermakov_2x.webp 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/michail-ermakov.webp 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/webp/mobile/michail-ermakov_2x.webp 2x`,
       },
       {
-        desktop: `${routes.basename}/images/team/desktop/michail-ermakov.jpg 1x, ./images/team/desktop/michail-ermakov@2x.jpg 2x`,
-        tablet: `${routes.basename}/images/team/tablet/michail-ermakov.jpg 1x, ./images/team/tablet/michail-ermakov@2x.jpg 2x`,
-        mobile: `${routes.basename}/images/team/mobile/michail-ermakov.jpg 1x, ./images/team/mobile/michail-ermakov@2x.jpg 2x`,
+        desktop: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/michail-ermakov.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/desktop/michail-ermakov_2x.jpg 2x`,
+        tablet: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/michail-ermakov.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/tablet/michail-ermakov_2x.jpg 2x`,
+        mobile: `https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/michail-ermakov.jpg 1x, https://res.cloudinary.com/djp4ztej6/image/upload/v1640113793/CloudAvatar/image/jpg/mobile/michail-ermakov_2x.jpg 2x`,
       },
     ],
     'soc-link': [
