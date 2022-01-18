@@ -22,7 +22,7 @@ const contactsArr = [
 
 const Contacts = ({ type }) => {
   return (
-    <ul className={`contacts ${type && styleModify.contacts[type].main}`}>
+    <ul className={`contacts ${type ? styleModify?.contacts[type]?.main : ''}`}>
       {contactsArr.map(contact => {
         const { link, image, text, width, height } = contact;
         return (
@@ -34,14 +34,14 @@ const Contacts = ({ type }) => {
           >
             <a
               className={`contacts__link  ${
-                type && styleModify.contacts[type].link
+                type ? styleModify.contacts[type].link : ''
               }`}
               href={link}
               rel="noopener noreferrer"
             >
               <svg
                 className={`contacts__icon ${
-                  type && styleModify.contacts[type].icon
+                  type ? styleModify.contacts[type].icon : ''
                 }`}
                 width={width}
                 height={height}

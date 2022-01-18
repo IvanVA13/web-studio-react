@@ -23,7 +23,7 @@ const MyRadioBtn = ({ children, ...props }) => {
       <Field
         className={styles['form-radio-btn']}
         type="radio"
-        value={children}
+        value={children === 'мужской' ? 'male' : 'female'}
         {...props}
       />
       {children}
@@ -44,37 +44,37 @@ const RegisterPage = () => {
       validationSchema={Yup.object({
         firstName: Yup.string(),
         lastName: Yup.string(),
-        email: Yup.string().email('Invalid email address').required('Required'),
-        password: Yup.string().min(6).required('Required'),
+        email: Yup.string()
+          .email('Указан неверный email')
+          .required('Обязательно'),
+        password: Yup.string().min(6).required('Обязательно'),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-          resetForm();
-        }, 400);
+        console.log(values);
+        setSubmitting(false);
+        resetForm();
       }}
     >
       <Form className={styles.form}>
-        <h1 className={styles['form-title']}>Signup</h1>
+        <h1 className={styles['form-title']}>Регистрация</h1>
         <MyTextInput
-          label="First Name"
+          label="Имя"
           name="firstName"
           type="text"
-          placeholder="John"
+          placeholder="Введите имя"
           autoComplete="off"
         />
 
         <MyTextInput
-          label="Last Name"
+          label="Фамилия"
           name="lastName"
           type="text"
-          placeholder="Doe"
+          placeholder="Введите фамилию"
           autoComplete="off"
         />
 
         <MyTextInput
-          label="Email Address"
+          label="Email"
           name="email"
           type="email"
           placeholder="user@webstudio.com"
@@ -82,7 +82,7 @@ const RegisterPage = () => {
         />
 
         <MyTextInput
-          label="Password"
+          label="Пароль"
           name="password"
           type="password"
           autoComplete="off"
@@ -92,13 +92,13 @@ const RegisterPage = () => {
             Sex
           </div>
           <div role="group" aria-labelledby="my-radio-group">
-            <MyRadioBtn name="sex">male</MyRadioBtn>
-            <MyRadioBtn name="sex">female</MyRadioBtn>
+            <MyRadioBtn name="sex">мужской</MyRadioBtn>
+            <MyRadioBtn name="sex">женский</MyRadioBtn>
           </div>
         </div>
 
         <button className={styles['form-btn']} type="submit">
-          Submit
+          Зарегистрироваться
         </button>
       </Form>
     </Formik>

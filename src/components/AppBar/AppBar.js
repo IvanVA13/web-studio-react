@@ -9,6 +9,7 @@ import Contacts from '../Contacts';
 import UserMenu from '../UserMenu';
 import routes from '../../routes';
 import { useState } from 'react';
+import styles from './AppBar.module.scss';
 
 const AppBar = () => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -39,7 +40,7 @@ const AppBar = () => {
             type="button"
             onClick={handleClick}
           >
-            <BiUserCircle className="header-guest-icon" />
+            <BiUserCircle className={styles['guest-icon']} />
           </button>
           {toggleModal && <UserMenu closeUserMenu={handleClick} />}
         </li>

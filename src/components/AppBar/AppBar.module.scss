@@ -1,0 +1,14 @@
+@import '../../sass/utils/_variables.scss';
+
+.guest-icon {
+  width: 100%;
+  height: 100%;
+  color: $main-text-color;
+  background-color: $second-accent-color;
+  transition: color $animation;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}

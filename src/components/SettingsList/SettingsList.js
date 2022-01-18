@@ -29,7 +29,7 @@ const MyRadioBtn = ({ children, ...props }) => {
       <Field
         className={styles['form-radio-btn']}
         type="radio"
-        value={children}
+        value={children === 'мужской' ? 'male' : 'female'}
         {...props}
       />
       {children}
@@ -37,11 +37,16 @@ const MyRadioBtn = ({ children, ...props }) => {
   );
 };
 
-const MyDownloadInput = ({ label, ...props }) => {
+const MyDownloadInput = ({ label, setFieldValue, ...props }) => {
   const [fakeField, setFakeField] = useState(null);
 
   const handleChange = e => {
+    setFieldValue('avatar', e?.currentTarget?.files[0]);
     setFakeField(e?.target?.files[0]?.name);
+  };
+
+  const handleClick = () => {
+    setFakeField(null);
   };
 
   return (
@@ -61,7 +66,11 @@ const MyDownloadInput = ({ label, ...props }) => {
           <div className={styles['input-download-fake']}>
             {fakeField ? fakeField : 'Выбрать файл'}
           </div>
-          <button className={styles['form-btn']} type="submit">
+          <button
+            className={styles['form-btn']}
+            onClick={handleClick}
+            type="submit"
+          >
             Иземенить
           </button>
         </div>
@@ -83,11 +92,9 @@ export const SettingsList = () => {
               firstName: Yup.string().required('обязательно'),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-                resetForm();
-              }, 400);
+              console.log(values);
+              setSubmitting(false);
+              resetForm();
             }}
           >
             <Form className={styles.form}>
@@ -96,7 +103,7 @@ export const SettingsList = () => {
                 name="firstName"
                 id="firstName"
                 type="text"
-                placeholder="John"
+                placeholder="Введите имя"
                 autoComplete="off"
               />
             </Form>
@@ -111,11 +118,9 @@ export const SettingsList = () => {
               lastName: Yup.string().required('обязательно'),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-                resetForm();
-              }, 400);
+              console.log(values);
+              setSubmitting(false);
+              resetForm();
             }}
           >
             <Form className={styles.form}>
@@ -124,7 +129,7 @@ export const SettingsList = () => {
                 name="lastName"
                 id="lastName"
                 type="text"
-                placeholder="Doe"
+                placeholder="Введите фамилию"
                 autoComplete="off"
               />
             </Form>
@@ -141,11 +146,9 @@ export const SettingsList = () => {
                 .required('обязательно'),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-                resetForm();
-              }, 400);
+              console.log(values);
+              setSubmitting(false);
+              resetForm();
             }}
           >
             <Form className={styles.form}>
@@ -169,11 +172,9 @@ export const SettingsList = () => {
               password: Yup.string().min(6).required('обязательно'),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-                resetForm();
-              }, 400);
+              console.log(values);
+              setSubmitting(false);
+              resetForm();
             }}
           >
             <Form className={styles.form}>
@@ -197,18 +198,16 @@ export const SettingsList = () => {
               sex: Yup.string().required('обязательно'),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-                resetForm();
-              }, 400);
+              console.log(values);
+              setSubmitting(false);
+              resetForm();
             }}
           >
             <Form className={styles.form}>
+              <div className={styles['form-label']} id="my-radio-group">
+                Изменить пол
+              </div>
               <div className={styles['form-container']}>
-                <div className={styles['form-label']} id="my-radio-group">
-                  Изменить пол
-                </div>
                 <div role="group" aria-labelledby="my-radio-group">
                   <MyRadioBtn name="sex">мужской</MyRadioBtn>
                   <MyRadioBtn name="sex">женский</MyRadioBtn>
@@ -229,47 +228,19 @@ export const SettingsList = () => {
               avatar: Yup.mixed().required('обязательно'),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              console.log(values.avatar.name);
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-                resetForm();
-              }, 400);
+              console.log(values);
+              setSubmitting(false);
+              resetForm();
             }}
           >
             {({ setFieldValue }) => (
-              <Form
-                // method="post"
-                encType="multipart/form-data"
-                className={styles.form}
-              >
-                <div className={styles['input-download-wrapper']}>
-                  <input
-                    className={styles['input-download']}
-                    name="avatar"
-                    accept="image/*"
-                    type="file"
-                    id="field__file-2"
-                    onChange={event => {
-                      setFieldValue('avatar', event.currentTarget.files[0]);
-                    }}
-                  />
-
-                  <label
-                    className={styles['input-download-label']}
-                    htmlFor="field__file-2"
-                  >
-                    Иземенить аватар
-                    <div className={styles['form-container']}>
-                      <div className={styles['input-download-fake']}>
-                        Выбрать файл
-                      </div>
-                    </div>
-                  </label>
-                </div>
-                <button className={styles['form-btn']} type="submit">
-                  Иземенить
-                </button>
+              <Form encType="multipart/form-data" className={styles.form}>
+                <MyDownloadInput
+                  label="Иземенить аватар"
+                  name="avatar"
+                  accept="image/*"
+                  setFieldValue={setFieldValue}
+                />
               </Form>
             )}
           </Formik>

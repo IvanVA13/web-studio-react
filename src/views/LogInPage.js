@@ -25,8 +25,10 @@ const LogInPage = () => {
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string().email('Invalid email address').required('required'),
-        password: Yup.string().min(6).required('required'),
+        email: Yup.string()
+          .email('Указан неверный email')
+          .required('Обязательно'),
+        password: Yup.string().min(6).required('Обязательно'),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
@@ -37,10 +39,10 @@ const LogInPage = () => {
       }}
     >
       <Form className={styles.form}>
-        <h1 className={styles['form-title']}>Login</h1>
+        <h1 className={styles['form-title']}>Вход</h1>
 
         <MyTextInput
-          label="Email Address"
+          label="Email"
           name="email"
           type="email"
           placeholder="user@webstudio.com"
@@ -48,14 +50,14 @@ const LogInPage = () => {
         />
 
         <MyTextInput
-          label="Password"
+          label="Пароль"
           name="password"
           type="password"
           autoComplete="off"
         />
 
         <button className={styles['form-btn']} type="submit">
-          Submit
+          Вход
         </button>
       </Form>
     </Formik>
