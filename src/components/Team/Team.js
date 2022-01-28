@@ -1,6 +1,7 @@
 import shortid from 'shortid';
 
 import Socials from '../Socials';
+import Section from '../Wrappers/Section';
 
 const idGen = () => shortid.generate();
 
@@ -101,40 +102,37 @@ const team = [
 
 const Team = () => {
   return (
-    <section className="section section--bg-color">
-      <div className="container">
-        <h2 className="section__title">Наша команда</h2>
-        <ul className="team">
-          {team.map(teammate => {
-            const { name, prof, image } = teammate;
-            const [webp, jpg] = teammate['pic-source'];
-            return (
-              <li className="team__item" key={idGen()}>
-                <div className="card">
-                  <picture>
-                    <source srcSet={webp.desktop} media="(min-width: 1200px)" />
-                    <source srcSet={webp.tablet} media="(min-width: 768px)" />
-                    <source srcSet={webp.mobile} media="(max-width: 767px)" />
-                    <source srcSet={jpg.desktop} media="(min-width: 1200px)" />
-                    <source srcSet={jpg.tablet} media="(min-width: 768px)" />
-                    <source srcSet={jpg.mobile} media="(max-width: 767px)" />
-                    <img
-                      className="image image--margin"
-                      src={image}
-                      alt={name}
-                      width="450"
-                    />
-                  </picture>
-                  <h3 className="title card__title">{name}</h3>
-                  <p className="card__profession">{prof}</p>
-                  <Socials socLink={teammate['soc-link']} />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
+    <Section type="second" title="Наша команда">
+      <ul className="team">
+        {team.map(teammate => {
+          const { name, prof, image } = teammate;
+          const [webp, jpg] = teammate['pic-source'];
+          return (
+            <li className="team__item" key={idGen()}>
+              <div className="card">
+                <picture>
+                  <source srcSet={webp.desktop} media="(min-width: 1200px)" />
+                  <source srcSet={webp.tablet} media="(min-width: 768px)" />
+                  <source srcSet={webp.mobile} media="(max-width: 767px)" />
+                  <source srcSet={jpg.desktop} media="(min-width: 1200px)" />
+                  <source srcSet={jpg.tablet} media="(min-width: 768px)" />
+                  <source srcSet={jpg.mobile} media="(max-width: 767px)" />
+                  <img
+                    className="image image--margin"
+                    src={image}
+                    alt={name}
+                    width="450"
+                  />
+                </picture>
+                <h3 className="title card__title">{name}</h3>
+                <p className="card__profession">{prof}</p>
+                <Socials socLink={teammate['soc-link']} />
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </Section>
   );
 };
 

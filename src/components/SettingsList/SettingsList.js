@@ -3,6 +3,8 @@ import styles from './SettingsList.module.scss';
 import { Formik, Form, Field, useField } from 'formik';
 import * as Yup from 'yup';
 
+import Container from '../Wrappers/Container';
+
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
@@ -81,7 +83,7 @@ const MyDownloadInput = ({ label, setFieldValue, ...props }) => {
 
 export const SettingsList = () => {
   return (
-    <div className="container">
+    <Container>
       <ul className={`${styles['settings-list']}`}>
         <li className={`${styles['settings-list-item']}`}>
           <Formik
@@ -246,6 +248,6 @@ export const SettingsList = () => {
           </Formik>
         </li>
       </ul>
-    </div>
+    </Container>
   );
 };

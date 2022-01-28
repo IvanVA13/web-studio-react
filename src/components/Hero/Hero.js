@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Modal from '../Modal';
+import Section from '../Wrappers/Section/Section';
+import styles from './Hero.module.scss';
 
 const Hero = () => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -8,20 +10,20 @@ const Hero = () => {
     setToggleModal(prevToggle => !prevToggle);
   };
   return (
-    <section className="hero">
-      <div className="hero__container">
-        <h1 className="hero__title">Эффективные решения для вашего бизнеса</h1>
-        <button
-          className="button hero__button"
-          data-modal-open
-          type="button"
-          onClick={handleClick}
-        >
-          Заказать услугу
-        </button>
-      </div>
+    <Section
+      type="main"
+      container="main"
+      title="Эффективные решения для вашего бизнеса"
+    >
+      <button
+        className={`${styles.button} ${styles['hero__button']}`}
+        type="button"
+        onClick={handleClick}
+      >
+        Заказать услугу
+      </button>
       {toggleModal && <Modal handleClick={handleClick} />}
-    </section>
+    </Section>
   );
 };
 

@@ -1,0 +1,43 @@
+@import '../../../sass/utils/variables';
+@import '../../../sass/utils/mixins';
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @include for-size(mobile) {
+    width: 480px;
+  }
+
+  @include for-size(tablet) {
+    width: 768px;
+  }
+
+  @include for-size(desktop) {
+    width: 1200px;
+  }
+  &__hero {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 696px;
+    @include for-size(mob-tab) {
+      max-width: 360px;
+    }
+
+    text-align: center;
+  }
+
+  &__footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    color: $second-accent-color;
+  }
+  &__order {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

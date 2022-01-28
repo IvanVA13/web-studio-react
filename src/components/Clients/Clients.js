@@ -1,6 +1,8 @@
 import shortid from 'shortid';
 
 import routes from '../../routes';
+import Section from '../Wrappers/Section';
+import styles from './Clients.module.scss';
 
 const idGen = () => shortid.generate();
 
@@ -45,30 +47,31 @@ const clients = [
 
 const Clients = () => {
   return (
-    <section className="section">
-      <div className="container">
-        <h2 className="section__title">Постоянные клиенты</h2>
-        <ul className="clients">
-          {clients.map(client => {
-            const { link, width, height, image } = client;
-            return (
-              <li className="clients__item" key={idGen()}>
-                <a
-                  href={link}
-                  className="clients__link"
-                  target="_blank"
-                  rel="noopener noreferrer"
+    <Section title="Постоянные клиенты">
+      <ul className={styles.clients}>
+        {clients.map(client => {
+          const { link, width, height, image } = client;
+          return (
+            <li className={styles['clients__item']} key={idGen()}>
+              <a
+                href={link}
+                className={styles['clients__link']}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  className={styles['clients__icon']}
+                  width={width}
+                  height={height}
                 >
-                  <svg className="clients__icon" width={width} height={height}>
-                    <use href={image}></use>
-                  </svg>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
+                  <use href={image}></use>
+                </svg>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </Section>
   );
 };
 

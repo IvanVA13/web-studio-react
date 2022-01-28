@@ -1,34 +1,35 @@
 import { NavLink } from 'react-router-dom';
 
 import routes from '../../routes';
+import styles from './Navigation.module.scss';
 
 const Navigation = () => {
   return (
-    <nav className="site-nav">
-      <ul className="site-nav__list">
-        <li className="site-nav__item">
+    <nav className={styles['site-nav']}>
+      <ul className={styles['site-nav__list']}>
+        <li className={styles['site-nav__item']}>
           <NavLink
             exact
-            className="site-nav__link"
-            activeClassName="site-nav__link--current"
+            className={styles['site-nav__link']}
+            activeClassName={styles['site-nav__link--current']}
             to={routes.home}
           >
             Студия
           </NavLink>
         </li>
-        <li className="site-nav__item">
+        <li className={styles['site-nav__item']}>
           <NavLink
-            className="site-nav__link"
-            activeClassName="site-nav__link--current"
+            className={styles['site-nav__link']}
+            activeClassName={styles['site-nav__link--current']}
             to={routes.portfolio}
           >
             Портфолио
           </NavLink>
         </li>
-        <li className="site-nav__item">
+        <li className={styles['site-nav__item']}>
           <NavLink
-            className="site-nav__link"
-            activeClassName="site-nav__link--current"
+            className={styles['site-nav__link']}
+            activeClassName={styles['site-nav__link--current']}
             to={routes.contacts}
           >
             Контакты
@@ -40,7 +41,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-/* <li className="site-nav__item"><Link className="site-nav__link"to={routes.register}>Регистрация</Link>
-        <li className="site-nav__item"><Link className="site-nav__link"to={routes.logIn}>Вход</Link>
-        <li className="site-nav__item"><Link className="site-nav__link"to={routes.orders}>Заказы</Link> */

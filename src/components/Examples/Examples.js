@@ -1,4 +1,6 @@
 import shortid from 'shortid';
+import Section from '../Wrappers/Section';
+import styles from './Examples.module.scss';
 
 const idGen = () => shortid.generate();
 const examples = [
@@ -42,35 +44,37 @@ const examples = [
 
 const Examples = () => {
   return (
-    <section className="section section--pad-top section--hidden">
-      <div className="container">
-        <h2 className="section__title">Чем мы занимаемся</h2>
-        <ul className="work-examples">
-          {examples.map(example => {
-            const { image, name } = example;
-            return (
-              <li className="work-examples__item" key={idGen()}>
-                <div className="work-examples__container">
-                  <picture>
-                    {example['pic-source'].map(pic => {
-                      return (
-                        <source
-                          srcSet={pic.desktop}
-                          media="(min-width: 1200px)"
-                          key={idGen()}
-                        />
-                      );
-                    })}
-                    <img className="image" src={image} alt={name} width="370" />
-                  </picture>
-                  <h3 className="title work-examples__title">{name}</h3>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
+    <Section type="desctop" title="Чем мы занимаемся">
+      <ul className={styles['work-examples']}>
+        {examples.map(example => {
+          const { image, name } = example;
+          return (
+            <li className={styles['work-examples__item']} key={idGen()}>
+              <div className={styles['work-examples__container']}>
+                <picture>
+                  {example['pic-source'].map(pic => {
+                    return (
+                      <source
+                        srcSet={pic.desktop}
+                        media="(min-width: 1200px)"
+                        key={idGen()}
+                      />
+                    );
+                  })}
+                  <img
+                    className={styles.image}
+                    src={image}
+                    alt={name}
+                    width="370"
+                  />
+                </picture>
+                <h3 className={styles['work-examples__title']}>{name}</h3>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </Section>
   );
 };
 

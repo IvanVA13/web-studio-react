@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import routes from '../../routes';
 import Contacts from '../Contacts';
 import Socials from '../Socials';
+import styles from './Footer.module.scss';
+import Container from '../Wrappers/Container';
 
 const socMain = [
   'https://instagram.com',
@@ -40,29 +42,36 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
-      <div className="container footer__container">
-        <ul className="footer__list">
-          <li className="footer__item">
-            <NavLink className="logo logo--white" exact to={routes.home}>
-              <span className="logo__accent">Web</span>Studio
+    <footer className={styles.footer}>
+      <Container type="footer">
+        <ul className={styles['footer__list']}>
+          <li className={styles['footer__item']}>
+            <NavLink
+              className={`${styles.logo} ${styles['logo--white']}`}
+              exact
+              to={routes.home}
+            >
+              <span className={styles['logo__accent']}>Web</span>Studio
             </NavLink>
-            <address className="address">
-              <p className="address__location">
+            <address className={styles.address}>
+              <p className={styles['address__location']}>
                 г. Киев, пр-т Леси Украинки, 26
               </p>
               <Contacts type={'footer'} />
             </address>
           </li>
-          <li className="footer__item">
-            <h2 className="title footer__title">присоединяйтесь</h2>
+          <li className={styles['footer__item']}>
+            <h2 className={styles['footer__title']}>присоединяйтесь</h2>
             <Socials footer socLink={socMain} type={'footer'} />
           </li>
-          <li className="footer__item">
-            <h2 className="title footer__title">Подпишитесь на рассылку</h2>
-            <form className="form footer__form" onSubmit={handleSubmit}>
+          <li className={styles['footer__item']}>
+            <h2 className={styles['footer__title']}>Подпишитесь на рассылку</h2>
+            <form
+              className={`${styles.form} ${styles['footer__form']}`}
+              onSubmit={handleSubmit}
+            >
               <input
-                className="form__input-alt"
+                className={styles['form__input-alt']}
                 type="email"
                 autoComplete="off"
                 required
@@ -72,18 +81,18 @@ const Footer = () => {
                 onChange={handleChange}
               />
               <button
-                className="button form__button form__button--footer"
+                className={`${styles.button} ${styles['form__button']} ${styles['form__button--footer']}`}
                 type="submit"
               >
                 Подписаться
-                <svg className="button__icon" width="24" height="24">
+                <svg className={styles['button__icon']} width="24" height="24">
                   <use href={other.send}></use>
                 </svg>
               </button>
             </form>
           </li>
         </ul>
-      </div>
+      </Container>
     </footer>
   );
 };

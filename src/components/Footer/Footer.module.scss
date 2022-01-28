@@ -1,3 +1,10 @@
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+@import '../../sass/utils/mixins';
+@import '../../sass/components/general/logo';
+@import '../../sass/components/general/button';
+@import '../../sass/components/general/form';
+
 .footer {
   background-color: $bg-color;
   @include for-size(mob-tab) {

@@ -1,14 +1,75 @@
-@import '../../sass/utils/_variables.scss';
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+@import '../../sass/utils/mixins';
+@import '../../sass/components/general/logo';
+@import '../../sass/components/general/button';
 
-.guest-icon {
-  width: 100%;
-  height: 100%;
-  color: $main-text-color;
-  background-color: $second-accent-color;
-  transition: color $animation;
+.header {
+  position: relative;
+  border-bottom: 1px solid $line-header-color;
+  @include for-size(mobile-only) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: $second-accent-color;
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    @extend %list;
+    @include for-size(mobile-only) {
+      justify-content: space-between;
+      height: 60px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+  }
 
-  &:hover,
-  &:focus {
-    color: $accent-color;
+  &__item:nth-child(1) {
+    @include for-size(desktop) {
+      margin-right: 93px;
+    }
+
+    @include for-size(tablet) {
+      margin-right: 88px;
+    }
+  }
+
+  &__item:nth-last-child(2) {
+    @include for-size(tablet) {
+      margin-left: auto;
+    }
+  }
+
+  &__item:last-child {
+    @include for-size(tablet) {
+      position: relative;
+    }
+  }
+
+  &__item:nth-child(n + 3) {
+    @include for-size(mobile-only) {
+      display: none;
+    }
+  }
+  &__button {
+    display: flex;
+    margin-left: 10px;
+    width: 35px;
+    padding: 0;
+  }
+  &__guest-icon {
+    width: 100%;
+    height: 100%;
+    color: $main-text-color;
+    background-color: $second-accent-color;
+    transition: color $animation;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
   }
 }

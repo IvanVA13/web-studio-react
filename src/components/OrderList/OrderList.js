@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styles from './OrderList.module.scss';
+import Container from '../Wrappers/Container';
 
 const orders = [
   {
@@ -26,7 +28,7 @@ const orders = [
 export const OrderList = () => {
   const handleClick = e => console.log(e.currentTarget.id);
   return (
-    <div className={`container ${styles['order-container']}`}>
+    <Container type="order">
       <h2 className={styles['order-title']}>Заказы</h2>
       <ul className={styles['order-list']}>
         {orders.map(({ id, date, comment, status }, i) => (
@@ -52,6 +54,6 @@ export const OrderList = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   );
 };

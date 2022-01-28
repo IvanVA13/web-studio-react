@@ -47,7 +47,7 @@
 }
 
 @mixin orders-width($range, $marg, $part) {
-  $mobile: 418px -$marg;
+  $mobile: 373px -$marg;
   $tablet: 706px -$marg;
   $desktop: 1138px -$marg;
   $del: 100px;

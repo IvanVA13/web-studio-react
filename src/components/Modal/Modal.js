@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
-
 import { createPortal } from 'react-dom';
 
 import routes from '../../routes';
+import styles from './Modal.module.scss';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -18,7 +18,11 @@ const Modal = ({ handleClick }) => {
 
   const closeModal = useCallback(
     e => {
-      if (e.code === 'Escape' || e.target === e.currentTarget) {
+      if (
+        e.code === 'Escape' ||
+        e.target === e.currentTarget ||
+        e.target.attributes.name.value === 'close'
+      ) {
         handleClick();
       }
     },
@@ -64,30 +68,30 @@ const Modal = ({ handleClick }) => {
   };
 
   return createPortal(
-    <div className="backdrop" onClick={closeModal}>
-      <div className="modal">
+    <div className={styles.backdrop} onClick={closeModal}>
+      <div className={styles.modal}>
         <button
-          className="modal__button-close"
-          onClick={closeModal}
+          name="close"
+          className={styles['modal__button-close']}
           type="button"
         >
           <svg
-            className="modal__icon-close"
+            name="close"
+            className={styles['modal__icon-close']}
             width="11"
             height="11"
-            onClick={closeModal}
           >
-            <use href={other['modal-close']}></use>
+            <use name="close" href={other['modal-close']}></use>
           </svg>
         </button>
-        <form className="form" onSubmit={handleSubmit}>
-          <b className="modal__title">
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <b className={styles['modal__title']}>
             Оставьте свои данные, мы вам перезвоним
           </b>
-          <label className="form__field">
-            <span className="form__label">Имя</span>
+          <label className={styles['form__field']}>
+            <span className={styles['form__label']}>Имя</span>
             <input
-              className="form__input"
+              className={styles['form__input']}
               type="text"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
@@ -97,16 +101,16 @@ const Modal = ({ handleClick }) => {
               value={name}
               onChange={handleChange}
             />
-            <svg className="form__input-icon">
+            <svg className={styles['form__input-icon']}>
               <use
                 href={`${routes.basename}/images/icon/sprite.svg#icon-modal-person`}
               ></use>
             </svg>
           </label>
-          <label className="form__field">
-            <span className="form__label">Телефон</span>
+          <label className={styles['form__field']}>
+            <span className={styles['form__label']}>Телефон</span>
             <input
-              className="form__input"
+              className={styles['form__input']}
               type="tel"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
@@ -116,16 +120,16 @@ const Modal = ({ handleClick }) => {
               value={phone}
               onChange={handleChange}
             />
-            <svg className="form__input-icon">
+            <svg className={styles['form__input-icon']}>
               <use
                 href={`${routes.basename}/images/icon/sprite.svg#icon-modal-phone`}
               ></use>
             </svg>
           </label>
-          <label className="form__field">
-            <span className="form__label">Почта</span>
+          <label className={styles['form__field']}>
+            <span className={styles['form__label']}>Почта</span>
             <input
-              className="form__input"
+              className={styles['form__input']}
               type="email"
               autoComplete="off"
               required
@@ -133,16 +137,18 @@ const Modal = ({ handleClick }) => {
               value={email}
               onChange={handleChange}
             />
-            <svg className="form__input-icon">
+            <svg className={styles['form__input-icon']}>
               <use
                 href={`${routes.basename}/images/icon/sprite.svg#icon-modal-envelope`}
               ></use>
             </svg>
           </label>
-          <label className="form__field form__field--margin">
-            <span className="form__label">Комментарий</span>
+          <label
+            className={`${styles['form__field']} ${styles['form__field--margin']}`}
+          >
+            <span className={styles['form__label']}>Комментарий</span>
             <textarea
-              className="form__textarea"
+              className={styles['form__textarea']}
               rows="10"
               placeholder="Введите текст"
               name="comment"
@@ -150,19 +156,19 @@ const Modal = ({ handleClick }) => {
               onChange={handleChange}
             ></textarea>
           </label>
-          <label className="form__terms-field">
+          <label className={styles['form__terms-field']}>
             <input
-              className="form__checkbox"
+              className={styles['form__checkbox']}
               type="checkbox"
               name="terms"
               value={termsConfirm}
               onChange={handleChange}
             />
-            <span className="form__custom-checkbox"></span>
-            <span className="form__terms-label">
+            <span className={styles['form__custom-checkbox']}></span>
+            <span className={styles['form__terms-label']}>
               Соглашаюсь с рассылкой и принимаю
               <a
-                className="form__terms-link"
+                className={styles['form__terms-link']}
                 href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -172,7 +178,7 @@ const Modal = ({ handleClick }) => {
             </span>
           </label>
           <button
-            className="button form__button"
+            className={`${styles.button} ${styles['form__button']}`}
             disabled={!termsConfirm}
             type="submit"
           >

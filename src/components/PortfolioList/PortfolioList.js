@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import shortid from 'shortid';
 
 import routes from '../../routes';
+import Container from '../Wrappers/Container';
 
 const idGen = () => shortid.generate();
 
@@ -206,7 +207,7 @@ const PortfolioList = () => {
   return (
     <ul className="section__list">
       <li className="section__item" key={idGen()}>
-        <div className="container">
+        <Container>
           <ul id="filter" className="sorting">
             {portfolioTypes.map(btn => (
               <li className="sorting__item" key={idGen()}>
@@ -220,10 +221,10 @@ const PortfolioList = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </Container>
       </li>
       <li className="section__item" key={idGen()}>
-        <div className="container">
+        <Container>
           <ul id="portfolio" className="portfolio">
             {portfolioWorks
               .filter(el => {
@@ -281,7 +282,7 @@ const PortfolioList = () => {
                 );
               })}
           </ul>
-        </div>
+        </Container>
       </li>
     </ul>
   );

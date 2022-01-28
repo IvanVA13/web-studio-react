@@ -1,0 +1,24 @@
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+@import '../../sass/utils/mixins';
+@import '../../sass/components/general/button';
+
+.hero {
+  &__button {
+    padding: 10px 32px;
+
+    color: $second-accent-color;
+    @include fonts(700, $lh: 1.87, $ls: 0.06em);
+    text-align: center;
+
+    background-color: $accent-color;
+    transition: background-color $animation;
+  }
+
+  &__button:hover,
+  &__button:focus {
+    color: $accent-color;
+
+    background-color: $second-accent-color;
+  }
+}

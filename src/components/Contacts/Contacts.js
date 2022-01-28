@@ -1,6 +1,7 @@
 import shortid from 'shortid';
+
 import routes from '../../routes';
-import styleModify from '../../styleModify';
+import styles from './Contacts.module.scss';
 
 const idGen = () => shortid.generate();
 const contactsArr = [
@@ -22,26 +23,31 @@ const contactsArr = [
 
 const Contacts = ({ type }) => {
   return (
-    <ul className={`contacts ${type ? styleModify?.contacts[type]?.main : ''}`}>
+    <ul className={`${styles.contacts} ${type && styles['contacts__address']}`}>
       {contactsArr.map(contact => {
         const { link, image, text, width, height } = contact;
         return (
           <li
-            className={`contacts__item 
-            ${type ? styleModify.contacts[type].item : 'contacts__item--margin'}
+            className={`
+            ${
+              type
+                ? styles['contacts__item--footer']
+                : styles['contacts__item--margin']
+            }
             `}
             key={idGen()}
           >
             <a
-              className={`contacts__link  ${
-                type ? styleModify.contacts[type].link : ''
-              }`}
+              className={`${styles['contacts__link']} ${
+                type === 'footer' && styles['contacts__link--footer']
+              }
+              `}
               href={link}
               rel="noopener noreferrer"
             >
               <svg
-                className={`contacts__icon ${
-                  type ? styleModify.contacts[type].icon : ''
+                className={`${styles['contacts__icon']}  ${
+                  type === 'footer' && styles['contacts__icon--hide']
                 }`}
                 width={width}
                 height={height}
