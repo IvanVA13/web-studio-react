@@ -20,10 +20,6 @@
     }
   }
 
-  &__list {
-    @extend %list;
-  }
-
   &--bg-color {
     background-color: $button-secondary-bg-color;
   }
@@ -50,10 +46,6 @@
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
-  }
-
-  &__item:not(:last-child) {
-    margin-bottom: 50px;
   }
 }
 

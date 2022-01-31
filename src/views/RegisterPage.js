@@ -89,7 +89,7 @@ const RegisterPage = () => {
         />
         <div className={styles['form-container']}>
           <div className={styles['form-label']} id="my-radio-group">
-            Sex
+            Пол
           </div>
           <div role="group" aria-labelledby="my-radio-group">
             <MyRadioBtn name="sex">мужской</MyRadioBtn>

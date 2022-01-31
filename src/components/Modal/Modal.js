@@ -21,7 +21,7 @@ const Modal = ({ handleClick }) => {
       if (
         e.code === 'Escape' ||
         e.target === e.currentTarget ||
-        e.target.attributes.name.value === 'close'
+        e?.target?.attributes?.name?.value === 'close'
       ) {
         handleClick();
       }

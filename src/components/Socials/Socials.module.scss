@@ -1,3 +1,7 @@
+@import '../../sass/utils/mixins';
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+
 .socials {
   @include centerFlexbox(inline-flex);
   @extend %list;

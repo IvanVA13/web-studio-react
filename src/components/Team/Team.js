@@ -2,6 +2,7 @@ import shortid from 'shortid';
 
 import Socials from '../Socials';
 import Section from '../Wrappers/Section';
+import styles from './Team.module.scss';
 
 const idGen = () => shortid.generate();
 
@@ -103,13 +104,13 @@ const team = [
 const Team = () => {
   return (
     <Section type="second" title="Наша команда">
-      <ul className="team">
+      <ul className={styles.team}>
         {team.map(teammate => {
           const { name, prof, image } = teammate;
           const [webp, jpg] = teammate['pic-source'];
           return (
-            <li className="team__item" key={idGen()}>
-              <div className="card">
+            <li className={styles['team__item']} key={idGen()}>
+              <div className={styles.card}>
                 <picture>
                   <source srcSet={webp.desktop} media="(min-width: 1200px)" />
                   <source srcSet={webp.tablet} media="(min-width: 768px)" />
@@ -118,14 +119,14 @@ const Team = () => {
                   <source srcSet={jpg.tablet} media="(min-width: 768px)" />
                   <source srcSet={jpg.mobile} media="(max-width: 767px)" />
                   <img
-                    className="image image--margin"
+                    className={`${styles.image} ${styles['image--margin']}`}
                     src={image}
                     alt={name}
                     width="450"
                   />
                 </picture>
-                <h3 className="title card__title">{name}</h3>
-                <p className="card__profession">{prof}</p>
+                <h3 className={styles['card__title']}>{name}</h3>
+                <p className={styles['card__profession']}>{prof}</p>
                 <Socials socLink={teammate['soc-link']} />
               </div>
             </li>

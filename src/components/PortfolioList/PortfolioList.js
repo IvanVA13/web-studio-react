@@ -4,6 +4,7 @@ import shortid from 'shortid';
 
 import routes from '../../routes';
 import Container from '../Wrappers/Container';
+import styles from './PortfolioList.module.scss';
 
 const idGen = () => shortid.generate();
 
@@ -205,14 +206,14 @@ const PortfolioList = () => {
     setFilter(textContent);
   };
   return (
-    <ul className="section__list">
-      <li className="section__item" key={idGen()}>
+    <ul className={styles['portfolio-wrapper']}>
+      <li className={styles['portfolio-wrapper-item']} key={idGen()}>
         <Container>
-          <ul id="filter" className="sorting">
+          <ul id="filter" className={styles['portfolio-sorting-list']}>
             {portfolioTypes.map(btn => (
-              <li className="sorting__item" key={idGen()}>
+              <li className={styles['portfolio-sorting-item']} key={idGen()}>
                 <button
-                  className="button sorting__button"
+                  className={`${styles.button} ${styles['portfolio-sorting-btn']}`}
                   type="button"
                   onClick={handleFilter}
                 >
@@ -223,9 +224,9 @@ const PortfolioList = () => {
           </ul>
         </Container>
       </li>
-      <li className="section__item" key={idGen()}>
+      <li className={styles['portfolio-wrapper-item']} key={idGen()}>
         <Container>
-          <ul id="portfolio" className="portfolio">
+          <ul id="portfolio" className={styles['portfolio-work-list']}>
             {portfolioWorks
               .filter(el => {
                 if (filter === 'Все') {
@@ -238,9 +239,12 @@ const PortfolioList = () => {
                 const { image, name, desc, link, id, type } = el;
                 const [webp, jpg] = el['pic-source'];
                 return (
-                  <li className="portfolio__item" key={idGen()}>
-                    <NavLink to={`${link}/${id}`} className="portfolio__link">
-                      <div className="portfolio__container">
+                  <li className={styles['portfolio-work-item']} key={idGen()}>
+                    <NavLink
+                      to={`${link}/${id}`}
+                      className={styles['portfolio-work-link']}
+                    >
+                      <div className={styles['portfolio-work-container']}>
                         <picture>
                           <source
                             srcSet={webp.desktop}
@@ -267,16 +271,18 @@ const PortfolioList = () => {
                             media="(max-width: 767px)"
                           />
                           <img
-                            className="image"
+                            className={styles.image}
                             src={image}
                             alt={name}
                             width="450"
                           />
                         </picture>
-                        <p className="portfolio__description">{desc}</p>
+                        <p className={styles['portfolio-work-description']}>
+                          {desc}
+                        </p>
                       </div>
-                      <h2 className="title portfolio__title">{name}</h2>
-                      <p className="portfolio__type-work">{type}</p>
+                      <h2 className={styles['portfolio-work-title']}>{name}</h2>
+                      <p className={styles['portfolio-work-type']}>{type}</p>
                     </NavLink>
                   </li>
                 );

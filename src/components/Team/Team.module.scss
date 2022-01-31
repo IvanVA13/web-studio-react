@@ -1,3 +1,8 @@
+@import '../../sass/utils/mixins';
+@import '../../sass/utils/variables';
+@import '../../sass/utils/placeholders';
+@import '../../sass/components/general/image';
+
 .team {
   display: flex;
   flex-wrap: wrap;
@@ -36,5 +41,27 @@
     @include for-size(tablet-only) {
       margin-bottom: 30px;
     }
+  }
+}
+
+.card {
+  padding-bottom: 30px;
+
+  background-color: $second-accent-color;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  &__title {
+    @extend %title;
+    @include fonts(500, $lh: 1.19);
+  }
+
+  &__profession {
+    margin: 0px;
+    margin-bottom: 16px;
+
+    @include fonts($lh: 1.19);
   }
 }
