@@ -1,2 +1,0 @@
-(this["webpackJsonpweb-studio-react"]=this["webpackJsonpweb-studio-react"]||[]).push([[7],{275:function(e,s,t){"use strict";t.r(s);var c=t(6),i=t(2);s.default=function(){var e=Object(c.f)().params.id;return Object(i.jsx)("main",{children:Object(i.jsx)("section",{className:"section",children:Object(i.jsxs)("h1",{className:"section__title",children:["\u041f\u043e\u0440\u0442\u0444\u043e\u043b\u0438\u043e \u2116 ",e]})})})}}}]);
-//# sourceMappingURL=portfolio-page.40c62b73.chunk.js.map
