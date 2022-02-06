@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import routes from '../../routes';
+import Backdrop from '../Wrappers/Backdrop';
 import styles from './Modal.module.scss';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -16,26 +17,7 @@ const Modal = ({ handleClick }) => {
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
 
-  const closeModal = useCallback(
-    e => {
-      if (
-        e.code === 'Escape' ||
-        e.target === e.currentTarget ||
-        e?.target?.attributes?.name?.value === 'close'
-      ) {
-        handleClick();
-      }
-    },
-    [handleClick],
-  );
-
   const [termsConfirm, setTermsConfirm] = useState(false);
-  useEffect(() => {
-    window.addEventListener('keydown', closeModal);
-    return () => {
-      window.removeEventListener('keydown', closeModal);
-    };
-  }, [closeModal]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -64,11 +46,11 @@ const Modal = ({ handleClick }) => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log({ name, phone, email, comment });
-    closeModal(e);
+    handleClick();
   };
 
   return createPortal(
-    <div className={styles.backdrop} onClick={closeModal}>
+    <Backdrop closeFunc={handleClick} toggle={true}>
       <div className={styles.modal}>
         <button
           name="close"
@@ -186,7 +168,7 @@ const Modal = ({ handleClick }) => {
           </button>
         </form>
       </div>
-    </div>,
+    </Backdrop>,
     modalRoot,
   );
 };

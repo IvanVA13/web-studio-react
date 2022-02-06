@@ -1,0 +1,67 @@
+.toggle-anim {
+  &-enter {
+    opacity: 0;
+  }
+  &-enter-active {
+    opacity: 1;
+    transition: opacity $animation;
+  }
+  &-exit {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+    transition: opacity $animation;
+  }
+}
+
+.scale-anim {
+  &-enter {
+    transform: scale(0);
+  }
+  &-enter-active {
+    transform: scale(100%);
+    transition: transform $animation 250ms;
+  }
+  &-exit {
+    transform: scale(100%);
+  }
+  &-exit-active {
+    transform: scale(0);
+    transition: transform $animation;
+  }
+}
+
+.scale-anim2 {
+  &-enter {
+    transform: scale(0) translate(100%, -100%);
+  }
+  &-enter-active {
+    transform: scale(100%) translate(0, 0);
+    transition: transform $animation;
+  }
+  &-exit {
+    transform: scale(100%) translate(0, 0);
+  }
+  &-exit-active {
+    transform: scale(0) translate(100%, -100%);
+    transition: transform $animation;
+  }
+}
+
+.scale-anim3 {
+  &-enter {
+    transform: scale(30%);
+  }
+  &-enter-active {
+    transform: scale(100%);
+    transition: transform $animation;
+  }
+  &-exit {
+    transform: scale(100%);
+  }
+  &-exit-active {
+    transform: scale(30%);
+    transition: transform $animation;
+  }
+}

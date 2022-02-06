@@ -43,12 +43,6 @@
     }
   }
 
-  &__item:last-child {
-    @include for-size(tablet) {
-      position: relative;
-    }
-  }
-
   &__item:nth-child(n + 3) {
     @include for-size(mobile-only) {
       display: none;
@@ -67,6 +61,16 @@
     background-color: $second-accent-color;
     transition: color $animation;
 
+    &-active {
+      position: fixed;
+      top: 22px;
+      width: 35px;
+      height: 35px;
+
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    &-active,
     &:hover,
     &:focus {
       color: $accent-color;

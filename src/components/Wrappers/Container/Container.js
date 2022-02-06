@@ -11,7 +11,9 @@ const Container = ({ children, type }) =>
         (type === 'footer' &&
           `${styles.container} ${styles['container__footer']}`) ||
         (type === 'order' &&
-          `${styles.container} ${styles['container__order']}`)
+          `${styles.container} ${styles['container__order']}`) ||
+        (type === 'no-click' &&
+          `${styles.container} ${styles['container__no-click']}`)
       }
     >
       {children}

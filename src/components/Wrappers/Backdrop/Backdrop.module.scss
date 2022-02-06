@@ -1,0 +1,23 @@
+@import '../../../sass/utils/variables';
+@import '../../../sass/utils/mixins';
+
+.backdrop {
+  @include for-size(tablet) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: $backdrop-bg;
+    opacity: 1;
+    transition: opacity $animation;
+
+    &--is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

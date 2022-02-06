@@ -40,4 +40,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  &__no-click {
+    position: relative;
+    pointer-events: none;
+  }
 }

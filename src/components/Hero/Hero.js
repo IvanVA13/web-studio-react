@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import Modal from '../Modal';
 import Section from '../Wrappers/Section/Section';
 import styles from './Hero.module.scss';
@@ -22,7 +23,14 @@ const Hero = () => {
       >
         Заказать услугу
       </button>
-      {toggleModal && <Modal handleClick={handleClick} />}
+      <CSSTransition
+        in={toggleModal}
+        timeout={250}
+        classNames="scale-anim3"
+        unmountOnExit
+      >
+        <Modal handleClick={handleClick} toggle={toggleModal} />
+      </CSSTransition>
     </Section>
   );
 };

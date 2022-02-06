@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import shortid from 'shortid';
 
 import routes from '../../routes';
@@ -200,16 +201,30 @@ const portfolioTypes = [
 ];
 
 const PortfolioList = () => {
+  const nodeRef = useRef(null);
+  const [items, setItems] = useState(portfolioWorks);
   const [filter, setFilter] = useState('Все');
   const handleFilter = e => {
     const { textContent } = e.target;
-    setFilter(textContent);
+    if (textContent !== 'Все') {
+      setFilter(textContent.slice(0, -1));
+    } else {
+      setFilter(textContent);
+    }
   };
+  useEffect(() => {
+    if (filter !== 'Все') {
+      return setItems(
+        portfolioWorks.filter(item => item.type.includes(filter)),
+      );
+    }
+    return setItems(portfolioWorks);
+  }, [filter]);
   return (
     <ul className={styles['portfolio-wrapper']}>
-      <li className={styles['portfolio-wrapper-item']} key={idGen()}>
+      <li className={styles['portfolio-wrapper-item']}>
         <Container>
-          <ul id="filter" className={styles['portfolio-sorting-list']}>
+          <ul className={styles['portfolio-sorting-list']}>
             {portfolioTypes.map(btn => (
               <li className={styles['portfolio-sorting-item']} key={idGen()}>
                 <button
@@ -224,22 +239,23 @@ const PortfolioList = () => {
           </ul>
         </Container>
       </li>
-      <li className={styles['portfolio-wrapper-item']} key={idGen()}>
+      <li className={styles['portfolio-wrapper-item']}>
         <Container>
-          <ul id="portfolio" className={styles['portfolio-work-list']}>
-            {portfolioWorks
-              .filter(el => {
-                if (filter === 'Все') {
-                  return el;
-                } else {
-                  return el.type.includes(filter.slice(1, -1));
-                }
-              })
-              .map(el => {
-                const { image, name, desc, link, id, type } = el;
-                const [webp, jpg] = el['pic-source'];
-                return (
-                  <li className={styles['portfolio-work-item']} key={idGen()}>
+          <TransitionGroup
+            component="ul"
+            className={styles['portfolio-work-list']}
+          >
+            {items.map(item => {
+              const { image, name, desc, link, id, type } = item;
+              const [webp, jpg] = item['pic-source'];
+              return (
+                <CSSTransition
+                  ref={nodeRef}
+                  key={idGen()}
+                  timeout={500}
+                  classNames="scale-anim"
+                >
+                  <li ref={nodeRef} className={styles['portfolio-work-item']}>
                     <NavLink
                       to={`${link}/${id}`}
                       className={styles['portfolio-work-link']}
@@ -285,9 +301,10 @@ const PortfolioList = () => {
                       <p className={styles['portfolio-work-type']}>{type}</p>
                     </NavLink>
                   </li>
-                );
-              })}
-          </ul>
+                </CSSTransition>
+              );
+            })}
+          </TransitionGroup>
         </Container>
       </li>
     </ul>

@@ -3,12 +3,14 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BiUserCircle } from 'react-icons/bi';
+import { CSSTransition } from 'react-transition-group';
 
 import MenuMob from '../MenuMob';
 import Navigation from '../Navigation';
 import Contacts from '../Contacts';
 import UserMenu from '../UserMenu';
 import Container from '../Wrappers/Container';
+import Backdrop from '../Wrappers/Backdrop';
 import routes from '../../routes';
 import styles from './AppBar.module.scss';
 
@@ -18,6 +20,7 @@ const AppBar = () => {
   const handleClick = () => {
     setToggleModal(prevToggle => !prevToggle);
   };
+
   return (
     <header className={styles.header}>
       <Container>
@@ -42,9 +45,22 @@ const AppBar = () => {
               type="button"
               onClick={handleClick}
             >
-              <BiUserCircle className={styles['header__guest-icon']} />
+              <BiUserCircle
+                className={`${styles['header__guest-icon']} ${
+                  toggleModal && styles['header__guest-icon-active']
+                }`}
+              />
             </button>
-            {toggleModal && <UserMenu closeUserMenu={handleClick} />}
+            <Backdrop closeFunc={handleClick} toggle={toggleModal}>
+              <CSSTransition
+                in={toggleModal}
+                timeout={250}
+                classNames="scale-anim2"
+                unmountOnExit
+              >
+                <UserMenu closeUserMenu={handleClick} toggle={toggleModal} />
+              </CSSTransition>
+            </Backdrop>
           </li>
         </ul>
       </Container>

@@ -1,5 +1,6 @@
-import { Switch } from 'react-router-dom';
+// import { Switch } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import { CSSTransition } from 'react-transition-group';
 // import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 
@@ -19,7 +20,6 @@ const ContactsPage = lazy(() =>
 const PortfolioPage = lazy(() =>
   import('./views/PortfolioPage' /* webpackChunkName: "portfolio-page" */),
 );
-
 const PortfolioListPage = lazy(() =>
   import(
     './views/PortfolioListPage' /* webpackChunkName: "portfolio-list-page" */
@@ -38,11 +38,58 @@ const SettingsPage = lazy(() =>
   import('./views/SettingsPage' /* webpackChunkName: "settings-page" */),
 );
 
+const routes2 = [
+  { path: routes.home, name: 'Home', Component: HomePage, type: 'public' },
+  {
+    path: routes.contacts,
+    name: 'Contacts',
+    Component: ContactsPage,
+    type: 'public',
+  },
+  {
+    path: routes.portfolio,
+    name: 'PortfolioList',
+    Component: PortfolioListPage,
+    type: 'public',
+  },
+  {
+    path: routes.portfolioId,
+    name: 'Portfolio',
+    Component: PortfolioPage,
+    type: 'public',
+  },
+  {
+    path: routes.orders,
+    name: 'Orders',
+    Component: OrdersPage,
+    type: 'private',
+  },
+  {
+    path: routes.login,
+    name: 'LogIn',
+    Component: LogInPage,
+    type: 'public',
+  },
+  {
+    path: routes.register,
+    name: 'Register',
+    Component: RegisterPage,
+    type: 'public',
+  },
+  {
+    path: routes.settings,
+    name: 'Settings',
+    Component: SettingsPage,
+    type: 'private',
+  },
+];
+
 function App() {
   return (
     <Suspense fallback={<Loader />}>
       <AppBar />
-      <Switch>
+
+      {/* <Switch>
         <PublicRoute exact path={routes.home}>
           <HomePage />
         </PublicRoute>
@@ -67,7 +114,36 @@ function App() {
         <PrivateRoute path={routes.orders}>
           <OrdersPage />
         </PrivateRoute>
-      </Switch>
+      </Switch> */}
+      {routes2.map(({ path, Component, type }) =>
+        type === 'public' ? (
+          <PublicRoute key={path} exact path={path} restricted>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={250}
+                classNames="toggle-anim"
+                unmountOnExit
+              >
+                <Component />
+              </CSSTransition>
+            )}
+          </PublicRoute>
+        ) : (
+          <PrivateRoute key={path} exact path={path}>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={250}
+                classNames="toggle-anim"
+                unmountOnExit
+              >
+                <Component />
+              </CSSTransition>
+            )}
+          </PrivateRoute>
+        ),
+      )}
       <Footer />
     </Suspense>
   );
