@@ -1,6 +1,8 @@
 @import './utils/mixins';
 @import './utils/variables';
 @import './utils/placeholders';
+@import './components/general/image';
+@import './components/general/button';
 
 .form {
   display: flex;
@@ -33,19 +35,44 @@
 
 .form-btn {
   width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
 
   color: $second-accent-color;
   @include fonts(700, $lh: 1.87, $ls: 0.06em);
-
   background-color: $accent-color;
-  border: 0;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: box-shadow $animation;
+  transition: all $animation;
 
   &:hover,
   &:focus {
+    background-color: $portfolio-bg-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.google-reg {
+  &-link {
+    @include centerFlexbox();
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+
+    @include fonts($fc: 14px, $lh: 1);
+    @extend %link;
+    color: inherit;
+    background-color: $second-accent-color;
+    transition: all $animation;
+
+    &:hover,
+    &:focus {
+      background-color: $button-secondary-bg-color;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+  &-icon {
+    width: 20px;
+    margin-right: 5px;
+    padding-bottom: 3px;
   }
 }
 
@@ -79,4 +106,23 @@
 .form-error {
   @include fonts($fc: 12px, $lh: 1.17, $ls: 0.01em);
   color: red;
+}
+
+.form-link {
+  @extend %link;
+  display: inline-block;
+  margin-top: 20px;
+  color: currentColor;
+  cursor: pointer;
+  transition: color $animation;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.form-desc {
+  font-weight: 700;
+  color: $title-text-color;
 }

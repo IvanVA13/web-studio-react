@@ -1,13 +1,14 @@
 // import { Switch } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import { Route } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-// import { useDispatch } from 'react-redux';
-// import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import AppBar from './components/AppBar';
 import Footer from './components/Footer';
 import routes from './routes';
-// import { getCurrentUser } from './redux/auth';
+import { currentUser } from './redux/auth';
 import { PrivateRoute, PublicRoute } from './components/RoutesHOC';
 import Loader from './components/Loader';
 
@@ -25,6 +26,14 @@ const PortfolioListPage = lazy(() =>
     './views/PortfolioListPage' /* webpackChunkName: "portfolio-list-page" */
   ),
 );
+const VerifyPage = lazy(() =>
+  import('./views/VerifyPage' /* webpackChunkName: "portfolio-list-page" */),
+);
+const ResendVerifyPage = lazy(() =>
+  import(
+    './views/ResendVerifyPage' /* webpackChunkName: "portfolio-list-page" */
+  ),
+);
 const LogInPage = lazy(() =>
   import('./views/LogInPage' /* webpackChunkName: "login-page" */),
 );
@@ -37,27 +46,35 @@ const OrdersPage = lazy(() =>
 const SettingsPage = lazy(() =>
   import('./views/SettingsPage' /* webpackChunkName: "settings-page" */),
 );
-
-const routes2 = [
-  { path: routes.home, name: 'Home', Component: HomePage, type: 'public' },
+const forAllRoutes = [
+  { path: routes.home, name: 'Home', Component: HomePage },
   {
     path: routes.contacts,
     name: 'Contacts',
     Component: ContactsPage,
-    type: 'public',
   },
   {
     path: routes.portfolio,
     name: 'PortfolioList',
     Component: PortfolioListPage,
-    type: 'public',
   },
   {
     path: routes.portfolioId,
     name: 'Portfolio',
     Component: PortfolioPage,
-    type: 'public',
   },
+  {
+    path: routes.verify,
+    name: 'Verify',
+    Component: ResendVerifyPage,
+  },
+  {
+    path: routes.verifyId,
+    name: 'Verify',
+    Component: VerifyPage,
+  },
+];
+const limitedRoutes = [
   {
     path: routes.orders,
     name: 'Orders',
@@ -85,37 +102,28 @@ const routes2 = [
 ];
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
   return (
     <Suspense fallback={<Loader />}>
       <AppBar />
-
-      {/* <Switch>
-        <PublicRoute exact path={routes.home}>
-          <HomePage />
-        </PublicRoute>
-        <PublicRoute path={`${routes.portfolio}/:id`}>
-          <PortfolioPage />
-        </PublicRoute>
-        <PublicRoute path={routes.portfolio}>
-          <PortfolioListPage />
-        </PublicRoute>
-        <PublicRoute path={routes.contacts}>
-          <ContactsPage />
-        </PublicRoute>
-        <PublicRoute path={routes.login} restricted>
-          <LogInPage />
-        </PublicRoute>
-        <PublicRoute path={routes.register} restricted>
-          <RegisterPage />
-        </PublicRoute>
-        <PrivateRoute path={routes.settings}>
-          <SettingsPage />
-        </PrivateRoute>
-        <PrivateRoute path={routes.orders}>
-          <OrdersPage />
-        </PrivateRoute>
-      </Switch> */}
-      {routes2.map(({ path, Component, type }) =>
+      {forAllRoutes.map(({ path, Component }) => (
+        <Route key={path} exact path={path}>
+          {({ match }) => (
+            <CSSTransition
+              in={match != null}
+              timeout={250}
+              classNames="toggle-anim"
+              unmountOnExit
+            >
+              <Component />
+            </CSSTransition>
+          )}
+        </Route>
+      ))}
+      {limitedRoutes.map(({ path, Component, type }) =>
         type === 'public' ? (
           <PublicRoute key={path} exact path={path} restricted>
             {({ match }) => (

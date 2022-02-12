@@ -1,9 +1,6 @@
-import shortid from 'shortid';
-
 import routes from '../../routes';
 import styles from './Contacts.module.scss';
 
-const idGen = () => shortid.generate();
 const contactsArr = [
   {
     link: 'mailto:info@devstudio.com',
@@ -35,7 +32,7 @@ const Contacts = ({ type }) => {
                 : styles['contacts__item--margin']
             }
             `}
-            key={idGen()}
+            key={text}
           >
             <a
               className={`${styles['contacts__link']} ${

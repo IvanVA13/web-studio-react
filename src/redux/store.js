@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
-  // persistReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,22 +9,22 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 
 import { auth } from './auth';
 import { orders } from './orders';
 import { mailing } from './mailing';
 
-// const persistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
+const persistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['session'],
+};
 
 const store = configureStore({
   reducer: {
-    auth,
-    // auth: persistReducer(persistConfig, auth),
+    // auth,
+    auth: persistReducer(persistConfig, auth),
     orders,
     mailing,
   },

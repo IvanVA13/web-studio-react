@@ -1,7 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, useField } from 'formik';
 import * as Yup from 'yup';
+
+import routes from '../routes';
+import { register } from '../redux/auth';
+import googleIcon from '../images/icon/google-symbol.svg';
 import styles from '../sass/Reg-form.module.scss';
+
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
@@ -32,6 +38,7 @@ const MyRadioBtn = ({ children, ...props }) => {
 };
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
   return (
     <Formik
       initialValues={{
@@ -50,7 +57,13 @@ const RegisterPage = () => {
         password: Yup.string().min(6).required('Обязательно'),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values);
+        const credentials = {};
+        Object.entries(values).forEach(value => {
+          if (value[1]) {
+            credentials[value[0]] = value[1];
+          }
+        });
+        dispatch(register(credentials));
         setSubmitting(false);
         resetForm();
       }}
@@ -97,9 +110,23 @@ const RegisterPage = () => {
           </div>
         </div>
 
-        <button className={styles['form-btn']} type="submit">
+        <button
+          className={`${styles.button} ${styles['form-btn']}`}
+          type="submit"
+        >
           Зарегистрироваться
         </button>
+        <a
+          href={`${routes.serverUrl}/users/google-auth`}
+          className={styles['google-reg-link']}
+        >
+          <img
+            src={googleIcon}
+            alt="Google Symbol"
+            className={`${styles.image} ${styles['google-reg-icon']}`}
+          />
+          Регистрация через Google
+        </a>
       </Form>
     </Formik>
   );

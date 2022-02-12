@@ -1,7 +1,6 @@
-// import { useSelector } from 'react-redux';
-
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { BiUserCircle } from 'react-icons/bi';
 import { CSSTransition } from 'react-transition-group';
 
@@ -13,10 +12,12 @@ import Container from '../Wrappers/Container';
 import Backdrop from '../Wrappers/Backdrop';
 import routes from '../../routes';
 import styles from './AppBar.module.scss';
+import { getIsAuthenticated, getUserAvatar } from '../../redux/auth';
 
 const AppBar = () => {
+  const isLogIn = useSelector(getIsAuthenticated);
+  const userAvatar = useSelector(getUserAvatar);
   const [toggleModal, setToggleModal] = useState(false);
-
   const handleClick = () => {
     setToggleModal(prevToggle => !prevToggle);
   };
@@ -45,11 +46,21 @@ const AppBar = () => {
               type="button"
               onClick={handleClick}
             >
-              <BiUserCircle
-                className={`${styles['header__guest-icon']} ${
-                  toggleModal && styles['header__guest-icon-active']
-                }`}
-              />
+              {isLogIn ? (
+                <img
+                  src={userAvatar}
+                  alt="user avatar"
+                  className={`${styles.image} ${styles['header__user-icon']} ${
+                    toggleModal && styles['header__user-icon-active']
+                  }`}
+                />
+              ) : (
+                <BiUserCircle
+                  className={`${styles['header__guest-icon']} ${
+                    toggleModal && styles['header__guest-icon-active']
+                  }`}
+                />
+              )}
             </button>
             <Backdrop closeFunc={handleClick} toggle={toggleModal}>
               <CSSTransition

@@ -1,4 +1,5 @@
 const routes = {
+  serverUrl: 'https://web-studioiv.herokuapp.com/api',
   basename: '/web-studio-react',
   home: '/',
   portfolio: '/portfolio',
@@ -8,6 +9,8 @@ const routes = {
   login: '/login',
   register: '/register',
   settings: '/settings',
+  verify: '/verify',
+  verifyId: '/verify/:id',
 };
 
 export default routes;

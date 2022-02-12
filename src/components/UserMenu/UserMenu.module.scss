@@ -29,8 +29,8 @@
     @include for-size(tablet) {
       @include centerFlexbox();
       padding-left: 10px;
+      flex-wrap: wrap;
     }
-    flex-wrap: wrap;
   }
 
   &-item {

@@ -3,6 +3,7 @@
 @import '../../sass/utils/mixins';
 @import '../../sass/components/general/logo';
 @import '../../sass/components/general/button';
+@import '../../sass/components/general/image';
 
 .header {
   position: relative;
@@ -53,10 +54,12 @@
     margin-left: 10px;
     width: 35px;
     padding: 0;
+    background-color: rgba(0, 0, 0, 0);
   }
   &__guest-icon {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     color: $main-text-color;
     background-color: $second-accent-color;
     transition: color $animation;
@@ -64,16 +67,29 @@
     &-active {
       position: fixed;
       top: 22px;
+      z-index: 99;
       width: 35px;
       height: 35px;
-
-      background-color: rgba(0, 0, 0, 0);
     }
 
     &-active,
     &:hover,
     &:focus {
       color: $accent-color;
+    }
+  }
+  &__user-icon {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    &-active {
+      position: fixed;
+      top: 22px;
+      z-index: 99;
+      width: 35px;
+      height: 35px;
     }
   }
 }

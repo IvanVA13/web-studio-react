@@ -10,6 +10,14 @@
     display: inline-block;
   }
 
+  &-list {
+    @extend %d-block;
+    @extend %list;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+  }
+
   &__address {
     display: block;
   }
@@ -26,6 +34,13 @@
 
   &__item--footer:not(:last-child) {
     margin-bottom: 9px;
+  }
+
+  &__title {
+    @extend %title;
+    @include fonts(700, inherit);
+
+    text-transform: uppercase;
   }
 
   &__link {
