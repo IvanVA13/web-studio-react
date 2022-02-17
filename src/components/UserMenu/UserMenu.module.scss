@@ -5,11 +5,10 @@
 .user-menu {
   @include for-size(tablet) {
     position: absolute;
-    // top: 59px;
     right: 0;
-    // padding: 10px;
     margin-top: 80px;
     margin-left: auto;
+    padding: 10px;
     pointer-events: initial;
 
     width: 225px;
@@ -28,7 +27,6 @@
     @extend %list;
     @include for-size(tablet) {
       @include centerFlexbox();
-      padding-left: 10px;
       flex-wrap: wrap;
     }
   }

@@ -9,6 +9,8 @@ import { logout } from '../../redux/auth';
 import styles from './UserMenu.module.scss';
 import Container from '../Wrappers/Container';
 import { getIsAuthenticated } from '../../redux/auth';
+import User from '../User';
+import useWindowDimensions from '../../helpers/useWindowDimensions';
 
 const userMenuData = [
   {
@@ -50,6 +52,7 @@ const userMenuData = [
 
 const UserMenu = ({ closeUserMenu }) => {
   const isLogIn = useSelector(getIsAuthenticated);
+  const { width } = useWindowDimensions();
   const dispatch = useDispatch();
   const handleClick = e => {
     if (e.currentTarget.getAttribute('act') === 'logout') {
@@ -60,6 +63,7 @@ const UserMenu = ({ closeUserMenu }) => {
   return (
     <Container type="no-click">
       <div className={styles['user-menu']}>
+        {isLogIn && width >= 768 && <User />}
         <ul className={styles['user-menu-list']}>
           {userMenuData
             .filter(

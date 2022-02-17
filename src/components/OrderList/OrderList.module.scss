@@ -1,6 +1,7 @@
 @import '../../sass/utils/mixins';
 @import '../../sass/utils/variables';
 @import '../../sass/utils/placeholders';
+@import '../../sass/components/general/button';
 
 p {
   margin: 0;
@@ -18,6 +19,13 @@ p {
 
   &-list {
     @extend %list;
+    @include for-size(mobile-only) {
+      width: 353px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    font-size: 12px;
     border: 1px solid $form-input-color;
     border-radius: 4px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -28,49 +36,107 @@ p {
     flex-wrap: wrap;
     align-items: center;
 
-    padding: 15px;
-    width: 100%;
+    padding: 5px 10px;
 
     &:not(:last-child) {
       border-bottom: 1px solid $placeholder-color;
     }
+    @include for-size(tablet) {
+      width: 100%;
+      padding: 0 10px;
+    }
   }
 
   &-date {
-    @include orders-width(mobile, 45px, 25px);
-    margin-right: 15px;
+    padding: 5px 0;
+
+    @include orders-width(mobile, 30px, 25px);
     @include for-size(tablet) {
-      @include orders-width(tablet, 45px, 12px);
+      @include orders-width(tablet, 30px, 12px);
     }
     @include for-size(desktop) {
-      @include orders-width(desktop, 45px, 7px);
+      @include orders-width(desktop, 30px, 8px);
+    }
+  }
+
+  &-desc {
+    position: relative;
+    display: flex;
+    min-height: 51px;
+
+    word-break: break-all;
+    @include orders-width(mobile, 30px, 75px);
+    @include for-size(tablet) {
+      @include orders-width(tablet, 30px, 65px);
+      margin-right: 15px;
+      padding: 10px;
+    }
+    @include for-size(desktop) {
+      @include orders-width(desktop, 30px, 70px);
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      @include for-size(tablet) {
+        content: '';
+      }
+      width: 1px;
+      height: 100%;
+      background-color: $placeholder-color;
+    }
+
+    &-header {
+      min-height: 40px;
+      word-break: break-word;
+    }
+  }
+
+  &-type {
+    @include centerFlexbox();
+
+    width: 38%;
+    margin-right: 10px;
+    padding: 0 5px;
+    @include for-size(tablet) {
+      width: 25%;
+      padding: 5px;
+    }
+    @include for-size(desktop) {
+      width: 15%;
     }
   }
 
   &-comment {
-    @include orders-width(mobile, 45px, 75px);
+    @include centerFlexbox();
+    width: 100%;
+    padding: 0 5px;
     @include for-size(tablet) {
-      @include orders-width(tablet, 45px, 65px);
-      margin-right: 15px;
-    }
-    @include for-size(desktop) {
-      @include orders-width(desktop, 45px, 70px);
+      display: block;
+      padding: 5px;
     }
   }
 
   &-status {
     @include orders-width(mobile, 45px, 25px);
     margin-right: 15px;
-
+    padding: 5px 0;
     text-align: center;
     color: $second-accent-color;
     border-radius: 4px;
 
     @include for-size(tablet) {
-      @include orders-width(tablet, 45px, 8px);
+      @include orders-width(tablet, 30px, 8px);
     }
     @include for-size(desktop) {
-      @include orders-width(desktop, 45px, 8px);
+      @include orders-width(desktop, 30px, 8px);
     }
 
     &-new {
@@ -82,26 +148,30 @@ p {
     &-cancel {
       background-color: tomato;
     }
+
+    &-header {
+      display: none;
+      color: inherit;
+      @include for-size(tablet) {
+        display: block;
+      }
+    }
   }
 
   &-btn {
     @include orders-width(mobile, 45px, 75px);
-
-    padding: 6px 22px;
-
-    cursor: pointer;
-    border: 0;
-    border-radius: 4px;
+    padding: 5px 0;
+    @include fonts($fc: 12px, $lh: 1.71);
     color: $second-accent-color;
-
     background-color: $accent-color;
     transition: box-shadow $animation;
 
     @include for-size(tablet) {
-      @include orders-width(tablet, 45px, 15px);
+      @include orders-width(tablet, 30px, 18px);
+      padding: 5px;
     }
     @include for-size(desktop) {
-      @include orders-width(desktop, 45px, 15px);
+      @include orders-width(desktop, 30px, 14px);
     }
     @extend %d-in-block;
 

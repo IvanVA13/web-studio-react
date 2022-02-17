@@ -3,14 +3,15 @@ import { Suspense, lazy } from 'react';
 import { Route } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import AppBar from './components/AppBar';
 import Footer from './components/Footer';
 import routes from './routes';
-import { currentUser } from './redux/auth';
+import { currentUser, getIsFetching } from './redux/auth';
 import { PrivateRoute, PublicRoute } from './components/RoutesHOC';
 import Loader from './components/Loader';
+import { useSelector } from 'react-redux';
 
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "home-page" */),
@@ -27,11 +28,19 @@ const PortfolioListPage = lazy(() =>
   ),
 );
 const VerifyPage = lazy(() =>
-  import('./views/VerifyPage' /* webpackChunkName: "portfolio-list-page" */),
+  import('./views/VerifyPage' /* webpackChunkName: "verify-page" */),
 );
 const ResendVerifyPage = lazy(() =>
   import(
-    './views/ResendVerifyPage' /* webpackChunkName: "portfolio-list-page" */
+    './views/ResendVerifyPage' /* webpackChunkName: "resend-verify-page" */
+  ),
+);
+const ForgottenPage = lazy(() =>
+  import('./views/ForgottenPage' /* webpackChunkName: "forgotten-page" */),
+);
+const ResetPasswordPage = lazy(() =>
+  import(
+    './views/ResetPasswordPage' /* webpackChunkName: "reset-password-page" */
   ),
 );
 const LogInPage = lazy(() =>
@@ -46,6 +55,7 @@ const OrdersPage = lazy(() =>
 const SettingsPage = lazy(() =>
   import('./views/SettingsPage' /* webpackChunkName: "settings-page" */),
 );
+
 const forAllRoutes = [
   { path: routes.home, name: 'Home', Component: HomePage },
   {
@@ -99,13 +109,35 @@ const limitedRoutes = [
     Component: SettingsPage,
     type: 'private',
   },
+  {
+    path: routes.forgotten,
+    name: 'Forgotten',
+    Component: ForgottenPage,
+    type: 'public',
+  },
+  {
+    path: routes.resetPassword,
+    name: 'ResetPassword',
+    Component: ResetPasswordPage,
+    type: 'public',
+  },
 ];
 
 function App() {
+  const [inProgress, setInProgress] = useState(true);
+  const isFetching = useSelector(getIsFetching);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(currentUser());
+    const getCurrentUser = async () => {
+      dispatch(await currentUser());
+      setInProgress(false);
+    };
+    getCurrentUser();
   }, [dispatch]);
+  if (inProgress || isFetching) {
+    return <Loader />;
+  }
+
   return (
     <Suspense fallback={<Loader />}>
       <AppBar />

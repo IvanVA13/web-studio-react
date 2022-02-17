@@ -28,6 +28,9 @@
     border: 1px solid $form-input-color;
     border-radius: 4px;
     transition: border-color $animation, outline-color $animation;
+    &--second {
+      padding-left: 15px;
+    }
   }
 
   &__field:hover &__input,

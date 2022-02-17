@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 import routes from '../../routes';
+import { getUser, getIsAuthenticated } from '../../redux/auth/auth-selectors';
+import { addOrder } from '../../redux/orders';
 import Backdrop from '../Wrappers/Backdrop';
 import styles from './Modal.module.scss';
 
@@ -12,12 +15,24 @@ const other = {
 };
 
 const Modal = ({ handleClick }) => {
+  const isAuth = useSelector(getIsAuthenticated);
+  const user = useSelector(getUser);
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [productType, setProductType] = useState('');
   const [comment, setComment] = useState('');
-
   const [termsConfirm, setTermsConfirm] = useState(false);
+  if (isAuth && !name) {
+    setName(`${user.firstName} ${user.lastName}`);
+  }
+  if (isAuth && !phone) {
+    setPhone(`${user.phone.replace(/[()-]/g, '')}`);
+  }
+  if (isAuth && !email) {
+    setEmail(`${user.email}`);
+  }
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -30,6 +45,9 @@ const Modal = ({ handleClick }) => {
         break;
       case 'email':
         setEmail(value);
+        break;
+      case 'productType':
+        setProductType(value);
         break;
       case 'comment':
         setComment(value);
@@ -45,7 +63,7 @@ const Modal = ({ handleClick }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log({ name, phone, email, comment });
+    dispatch(addOrder({ name, phone, email, productType, comment }));
     handleClick();
   };
 
@@ -75,10 +93,9 @@ const Modal = ({ handleClick }) => {
             <input
               className={styles['form__input']}
               type="text"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+              pattern="^[a-zA-Zа-яА-Я]+\s*((['-][a-zA-Zа-яА-Я])?[a-zA-Zа-яА-Я]*)*$"
+              title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles deBatz deCastelmore d'Artagnan и т. п."
               autoComplete="off"
-              required
               name="name"
               value={name}
               onChange={handleChange}
@@ -94,8 +111,9 @@ const Modal = ({ handleClick }) => {
             <input
               className={styles['form__input']}
               type="tel"
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+              pattern="[0-9]+"
+              maxLength="12"
+              title="Номер телефона должен состоять из цифр, включая код страны. Например: 380670001122"
               autoComplete="off"
               required
               name="phone"
@@ -125,6 +143,21 @@ const Modal = ({ handleClick }) => {
               ></use>
             </svg>
           </label>
+          <label className={styles['form__field']}>
+            <span className={styles['form__label']}>Вид товара</span>
+            <select
+              className={`${styles['form__input']} ${styles['form__input--second']}`}
+              required
+              name="productType"
+              onChange={handleChange}
+            >
+              <option value=""></option>
+              <option value="веб-сайт">Веб-сайт</option>
+              <option value="дизайн">Дизайн</option>
+              <option value="приложение">Приложение</option>
+              <option value="маркетинг">Маркетинг</option>
+            </select>
+          </label>
           <label
             className={`${styles['form__field']} ${styles['form__field--margin']}`}
           >
@@ -133,6 +166,7 @@ const Modal = ({ handleClick }) => {
               className={styles['form__textarea']}
               rows="10"
               placeholder="Введите текст"
+              required
               name="comment"
               value={comment}
               onChange={handleChange}

@@ -8,13 +8,13 @@
     @extend %list;
     @include for-size(mobile-only) {
       display: inline-block;
-      padding-bottom: 60px;
+      padding-bottom: 30px;
     }
   }
 
   &__item:not(:first-child) {
     @include for-size(mobile-only) {
-      margin-top: 40px;
+      margin-top: 30px;
     }
   }
   &__item:not(:last-child) {

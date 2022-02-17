@@ -47,9 +47,9 @@
 }
 
 @mixin orders-width($range, $marg, $part) {
-  $mobile: 373px -$marg;
-  $tablet: 706px -$marg;
-  $desktop: 1138px -$marg;
+  $mobile: 353px -$marg;
+  $tablet: 686px -$marg;
+  $desktop: 1118px -$marg;
   $del: 100px;
   @if $range == mobile {
     width: #{$mobile / $del * $part};

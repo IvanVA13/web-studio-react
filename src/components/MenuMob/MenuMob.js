@@ -60,8 +60,8 @@ const MenuMob = () => {
           id="menu-container"
         >
           <Navigation />
+          <UserMenu closeUserMenu={handleClick} />
           <Contacts />
-          <UserMenu />
         </div>
       </div>
     </div>

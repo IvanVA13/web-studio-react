@@ -13,7 +13,6 @@ import storage from 'redux-persist/lib/storage';
 
 import { auth } from './auth';
 import { orders } from './orders';
-import { mailing } from './mailing';
 
 const persistConfig = {
   key: 'auth',
@@ -23,10 +22,8 @@ const persistConfig = {
 
 const store = configureStore({
   reducer: {
-    // auth,
     auth: persistReducer(persistConfig, auth),
     orders,
-    mailing,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>

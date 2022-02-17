@@ -31,11 +31,13 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 export const currentUser = createAsyncThunk(
   'auth/current',
   async (_, { getState, rejectWithValue, dispatch }) => {
-    const {
-      auth: {
-        session: { token: persistedToken },
-      },
-    } = getState();
+    let persistedToken;
+    persistedToken = getState()?.auth?.session?.token;
+    // {
+    //   auth: {
+    //     session: { token: persistedToken },
+    //   },
+    // } = getState();
     if (!persistedToken) {
       return rejectWithValue();
     }
@@ -46,7 +48,9 @@ export const currentUser = createAsyncThunk(
       return data;
     } catch (_) {
       try {
-        dispatch(refreshToken());
+        await dispatch(refreshToken());
+        persistedToken = getState()?.auth?.session?.token;
+        token.set(persistedToken);
         const { data } = await axios.get('/users/current');
         return data;
       } catch (error) {
@@ -89,5 +93,63 @@ export const refreshToken = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
+  },
+);
+
+export const changeFirstName = createAsyncThunk(
+  'auth/changeFirstName',
+  async firstName => {
+    const { data } = await axios.patch(`/users/first-name`, firstName);
+    return data;
+  },
+);
+
+export const changeLastName = createAsyncThunk(
+  'auth/changeLastName',
+  async lastName => {
+    const { data } = await axios.patch(`/users/last-name`, lastName);
+    return data;
+  },
+);
+
+export const changeEmail = createAsyncThunk('auth/changeEmail', async email => {
+  const { data } = await axios.patch(`/users/email`, email);
+  return data;
+});
+
+export const changePassword = createAsyncThunk(
+  'auth/changePassword',
+  async password => {
+    const { data } = await axios.patch(`/users/password`, password);
+    return data;
+  },
+);
+
+export const changeSex = createAsyncThunk('auth/changeSex', async sex => {
+  const { data } = await axios.patch(`/users/sex`, sex);
+  return data;
+});
+
+export const changeAvatar = createAsyncThunk(
+  'auth/changeAvatar',
+  async avatar => {
+    const { data } = await axios.patch(`/users/avatar`, avatar);
+    return data;
+  },
+);
+
+export const forgotten = createAsyncThunk('auth/forgotten', async email => {
+  const { data } = await axios.post(`/users/forgotten`, email);
+  return data;
+});
+
+export const resetPassword = createAsyncThunk(
+  'auth/resetPassword',
+  async ({ resetPasswordToken, password }) => {
+    const { data } = await axios.post(
+      `/users/reset-password/${resetPasswordToken}`,
+      password,
+    );
+    return data;
   },
 );

@@ -18,7 +18,7 @@ const Section = ({ type, container, title, children }) => {
   if (type === 'main') {
     return <section className={styles.hero}>{getContainer()}</section>;
   }
-  if (type === 'desctop') {
+  if (type === 'desktop') {
     return (
       <section
         className={`${styles.section} ${styles['section--pad-top']} ${styles['section--hidden']}`}

@@ -45,14 +45,19 @@ const RegisterPage = () => {
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
         password: '',
         sex: '',
       }}
       validationSchema={Yup.object({
-        firstName: Yup.string(),
-        lastName: Yup.string(),
+        firstName: Yup.string().max(25),
+        lastName: Yup.string().max(25),
         email: Yup.string()
           .email('Указан неверный email')
+          .required('Обязательно'),
+        phone: Yup.string()
+          .matches(/[0-9]+/, 'Номер телефона состоит только из цифр')
+          .min(12, 'Номер телефона состоит из 12 цифр')
           .required('Обязательно'),
         password: Yup.string().min(6).required('Обязательно'),
       })}
@@ -91,6 +96,16 @@ const RegisterPage = () => {
           name="email"
           type="email"
           placeholder="user@webstudio.com"
+          autoComplete="off"
+        />
+
+        <MyTextInput
+          label="Телефон"
+          name="phone"
+          type="tel"
+          maxLength="12"
+          autoCorrect="true"
+          placeholder="Введите номер телефона"
           autoComplete="off"
         />
 

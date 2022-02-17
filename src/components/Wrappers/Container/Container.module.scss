@@ -40,8 +40,17 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  &__settings {
+    @include for-size(mobile-only) {
+      margin-top: 70px;
+    }
+  }
   &__no-click {
-    position: relative;
-    pointer-events: none;
+    padding-bottom: 10px;
+    @include for-size(tablet) {
+      position: relative;
+      padding-bottom: 0;
+      pointer-events: none;
+    }
   }
 }

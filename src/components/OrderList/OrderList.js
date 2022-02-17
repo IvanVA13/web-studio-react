@@ -2,57 +2,85 @@ import React from 'react';
 
 import styles from './OrderList.module.scss';
 import Container from '../Wrappers/Container';
-
-const orders = [
-  {
-    id: '1',
-    date: '25.10.2021',
-    comment: 'We need some site',
-    status: 'cancel',
-  },
-  {
-    id: '2',
-    date: '25.11.2021',
-    comment: 'Hello. Our company need web store',
-    status: 'done',
-  },
-  {
-    id: '3',
-    date: '25.12.2021',
-
-    comment: 'I need cheep and powerful website!!! And very fast!!!',
-    status: 'new',
-  },
-];
+import { useSelector } from 'react-redux';
+import {
+  fetchOrders,
+  getAllOrders,
+  updateOrderStatus,
+} from '../../redux/orders';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 export const OrderList = () => {
-  const handleClick = e => console.log(e.currentTarget.id);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchOrders());
+  }, [dispatch]);
+
+  const orders = useSelector(getAllOrders);
+  const handleClick = e => {
+    dispatch(updateOrderStatus(e.currentTarget.id));
+  };
   return (
     <Container type="order">
       <h2 className={styles['order-title']}>Заказы</h2>
       <ul className={styles['order-list']}>
-        {orders.map(({ id, date, comment, status }, i) => (
-          <li className={styles['order-item']} key={i}>
-            <p className={styles['order-date']}>{date}</p>
-            <p className={styles['order-comment']}>{comment}</p>
+        <li
+          className={`${styles['order-item']} ${styles['order-item-header']}`}
+          key="header of order list"
+        >
+          <p className={styles['order-date']}>Дата заказа</p>
+          <div
+            className={`${styles['order-desc']} ${styles['order-desc-header']}`}
+          >
+            <p className={`${styles['order-type']}`}>Услуга</p>
             <p
-              className={`${styles['order-status']} ${
-                styles[`order-status-${status}`]
-              }`}
+              className={`${styles['order-comment']} ${styles['order-comment-header']}`}
             >
-              {status}
+              Комментарий к заказу
             </p>
-            <button
-              className={styles['order-btn']}
-              type="button"
-              id={id}
-              disabled={status === 'new' ? false : true}
-              onClick={handleClick}
-            >
-              Отменить заказ
-            </button>
-          </li>
-        ))}
+          </div>
+          <p
+            className={`${styles['order-status']} ${styles['order-status-header']}`}
+          >
+            Статус заказа
+          </p>
+        </li>
+        {orders.map(({ _id, productType, createdAt, comment, status, btn }) => {
+          const date = new Date(createdAt);
+          const newDate = `${date.toLocaleString()}`;
+          const newType = productType
+            ? `${productType[0].toUpperCase()}${productType.slice(1)}`
+            : '';
+
+          return (
+            <li className={styles['order-item']} key={_id}>
+              <p className={styles['order-date']}>{newDate}</p>
+              <div className={`${styles['order-desc']}`}>
+                <p className={`${styles['order-type']}`}>{newType}</p>
+                <p className={`${styles['order-comment']}`}>{comment}</p>
+              </div>
+              <p
+                className={`${styles['order-status']} ${
+                  styles[`order-status-${status}`]
+                }`}
+              >
+                {status}
+              </p>
+              {!btn && (
+                <button
+                  className={`${styles.button} ${styles['order-btn']}`}
+                  type="button"
+                  id={_id}
+                  disabled={status === 'new' ? false : true}
+                  onClick={handleClick}
+                >
+                  Отменить заказ
+                </button>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </Container>
   );

@@ -1,13 +1,11 @@
 import { useRouteMatch } from 'react-router-dom';
-
+import Section from '../components/Wrappers/Section';
 const PortfolioPage = () => {
-  const path = useRouteMatch().params.id;
+  const path = useRouteMatch();
 
   return (
     <main>
-      <section className="section">
-        <h1 className="section__title">Портфолио № {path}</h1>
-      </section>
+      <Section container="hide" title={`Портфолио № ${path?.params?.id}`} />
     </main>
   );
 };

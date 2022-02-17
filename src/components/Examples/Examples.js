@@ -44,7 +44,7 @@ const examples = [
 
 const Examples = () => {
   return (
-    <Section type="desctop" title="Чем мы занимаемся">
+    <Section type="desktop" title="Чем мы занимаемся">
       <ul className={styles['work-examples']}>
         {examples.map(example => {
           const { image, name } = example;

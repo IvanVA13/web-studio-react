@@ -12,6 +12,8 @@ const Container = ({ children, type }) =>
           `${styles.container} ${styles['container__footer']}`) ||
         (type === 'order' &&
           `${styles.container} ${styles['container__order']}`) ||
+        (type === 'settings' &&
+          `${styles.container} ${styles['container__settings']}`) ||
         (type === 'no-click' &&
           `${styles.container} ${styles['container__no-click']}`)
       }

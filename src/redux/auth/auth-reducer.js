@@ -10,6 +10,14 @@ import {
   verify,
   resendVerifyToken,
   refreshToken,
+  changeFirstName,
+  changeLastName,
+  changeEmail,
+  changePassword,
+  changeSex,
+  changeAvatar,
+  forgotten,
+  resetPassword,
 } from './auth-operations';
 
 const initialState = {
@@ -19,14 +27,33 @@ const initialState = {
 
 const user = createReducer(initialState, {
   [register.fulfilled]: (_, { payload }) => payload.data.email,
-  [login.fulfilled]: (_, { payload }) => ({ ...payload.data }),
+  [login.fulfilled]: (_, { payload }) => payload.data,
   [logout.fulfilled]: () => initialState,
   [currentUser.fulfilled]: (_, { payload }) => ({
     ...payload.data,
   }),
-
   [verify.fulfilled]: () => true,
   [resendVerifyToken.fulfilled]: () => true,
+  [changeFirstName.fulfilled]: (state, { payload }) => ({
+    ...state,
+    firstName: payload.data.newFirstName,
+  }),
+  [changeLastName.fulfilled]: (state, { payload }) => ({
+    ...state,
+    lastName: payload.data.newLastName,
+  }),
+  [changeEmail.fulfilled]: (state, { payload }) => ({
+    ...state,
+    email: payload.data.newEmail,
+  }),
+  [changeSex.fulfilled]: (state, { payload }) => ({
+    ...state,
+    sex: payload.data.newSex,
+  }),
+  [changeAvatar.fulfilled]: (state, { payload }) => ({
+    ...state,
+    ...payload.data,
+  }),
 });
 
 const userLoading = createReducer(false, {
@@ -65,7 +92,6 @@ const session = createReducer(null, {
     sid: payload.sid,
   }),
   [refreshToken.rejected]: () => null,
-  [currentUser.rejected]: () => null,
   [logout.fulfilled]: () => null,
 });
 
@@ -78,6 +104,13 @@ const userError = createReducer(null, {
   [currentUser.rejected]: setError,
   [verify.rejected]: setError,
   [resendVerifyToken.rejected]: setError,
+  [changeFirstName.rejected]: setError,
+  [changeLastName.rejected]: setError,
+  [changeEmail.rejected]: setError,
+  [changePassword.rejected]: setError,
+  [changeAvatar.rejected]: setError,
+  [forgotten.rejected]: setError,
+  [resetPassword.rejected]: setError,
 });
 
 export default combineReducers({
