@@ -1,0 +1,2 @@
+(this["webpackJsonpweb-studio-react"]=this["webpackJsonpweb-studio-react"]||[]).push([[14],{318:function(t,e,a){"use strict";a.r(e);var c=a(17),s=a(14),b=a(46),o=a(4),r=a(5),i=a(2);e.default=function(){var t=Object(c.b)(),e=Object(s.g)();return e?(t(Object(o.o)(e.params.id)),Object(i.jsx)(s.a,{to:r.a.home})):Object(i.jsx)(b.a,{})}}}]);
+//# sourceMappingURL=verify-page.231b6000.chunk.js.map
