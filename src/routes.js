@@ -1,6 +1,6 @@
 const routes = {
-  // serverUrl: 'https://web-studioiv.herokuapp.com/api',
-  serverUrl: 'http://localhost:3000/api',
+  serverUrl: 'https://web-studioiv.herokuapp.com/api',
+  // serverUrl: 'http://localhost:3000/api',
   basename: '/web-studio-react',
   home: '/',
   portfolio: '/portfolio',
