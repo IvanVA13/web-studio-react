@@ -11,11 +11,11 @@
     "home-page.js": "/web-studio-react/static/js/home-page.4da91849.chunk.js",
     "home-page.js.map": "/web-studio-react/static/js/home-page.4da91849.chunk.js.map",
     "login-page.css": "/web-studio-react/static/css/login-page.1bd9dc01.chunk.css",
-    "login-page.js": "/web-studio-react/static/js/login-page.f6ee93cc.chunk.js",
-    "login-page.js.map": "/web-studio-react/static/js/login-page.f6ee93cc.chunk.js.map",
+    "login-page.js": "/web-studio-react/static/js/login-page.e1d258bc.chunk.js",
+    "login-page.js.map": "/web-studio-react/static/js/login-page.e1d258bc.chunk.js.map",
     "main.css": "/web-studio-react/static/css/main.3415ac7b.chunk.css",
-    "main.js": "/web-studio-react/static/js/main.1537bbd1.chunk.js",
-    "main.js.map": "/web-studio-react/static/js/main.1537bbd1.chunk.js.map",
+    "main.js": "/web-studio-react/static/js/main.95b4b337.chunk.js",
+    "main.js.map": "/web-studio-react/static/js/main.95b4b337.chunk.js.map",
     "orders-page.css": "/web-studio-react/static/css/orders-page.76a4dc97.chunk.css",
     "orders-page.js": "/web-studio-react/static/js/orders-page.b88b4c0b.chunk.js",
     "orders-page.js.map": "/web-studio-react/static/js/orders-page.b88b4c0b.chunk.js.map",
@@ -34,8 +34,8 @@
     "reset-password-page.css": "/web-studio-react/static/css/reset-password-page.1bd9dc01.chunk.css",
     "reset-password-page.js": "/web-studio-react/static/js/reset-password-page.7a5fd9c3.chunk.js",
     "reset-password-page.js.map": "/web-studio-react/static/js/reset-password-page.7a5fd9c3.chunk.js.map",
-    "runtime-main.js": "/web-studio-react/static/js/runtime-main.eb77f7aa.js",
-    "runtime-main.js.map": "/web-studio-react/static/js/runtime-main.eb77f7aa.js.map",
+    "runtime-main.js": "/web-studio-react/static/js/runtime-main.ac2e704d.js",
+    "runtime-main.js.map": "/web-studio-react/static/js/runtime-main.ac2e704d.js.map",
     "settings-page.css": "/web-studio-react/static/css/settings-page.c254ffae.chunk.css",
     "settings-page.js": "/web-studio-react/static/js/settings-page.94233c04.chunk.js",
     "settings-page.js.map": "/web-studio-react/static/js/settings-page.94233c04.chunk.js.map",
@@ -63,10 +63,10 @@
     "static/media/Modal.module.scss": "/web-studio-react/static/media/modal-cheked.aad5dc5e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.eb77f7aa.js",
+    "static/js/runtime-main.ac2e704d.js",
     "static/css/15.c79dbdbc.chunk.css",
     "static/js/15.1c44d720.chunk.js",
     "static/css/main.3415ac7b.chunk.css",
-    "static/js/main.1537bbd1.chunk.js"
+    "static/js/main.95b4b337.chunk.js"
   ]
 }
