@@ -48,7 +48,7 @@ export const OrderList = () => {
         </li>
         {orders.map(({ _id, productType, createdAt, comment, status, btn }) => {
           const date = new Date(createdAt);
-          const newDate = `${date.toLocaleString()}`;
+          const newDate = `${createdAt ? date.toLocaleString() : ''}`;
           const newType = productType
             ? `${productType[0].toUpperCase()}${productType.slice(1)}`
             : '';
