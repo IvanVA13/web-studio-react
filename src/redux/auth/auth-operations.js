@@ -36,7 +36,6 @@ export const currentUser = createAsyncThunk(
     if (!persistedToken) {
       return rejectWithValue();
     }
-    console.log(persistedToken);
     token.set(persistedToken);
 
     try {
