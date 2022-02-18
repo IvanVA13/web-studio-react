@@ -7,14 +7,16 @@
 .modal {
   position: absolute;
   top: 60px;
+  left: 50%;
   width: 450px;
+  transform: translate(-50%);
 
   @include for-size(mobile-s) {
     width: 100%;
   }
   @include for-size(tablet) {
     top: 50%;
-    left: 50%;
+
     transform: translate(-50%, -50%);
   }
 

@@ -28,6 +28,10 @@ const MyTextInput = ({ label, ...props }) => {
 const LogInPage = () => {
   const loc = useLocation();
   const dispatch = useDispatch();
+  const handleSubmit = async values => {
+    await dispatch(login(values));
+    dispatch(currentUser());
+  };
   if (loc.search && loc.search.slice(1).split(/&|=/).length === 6) {
     const searchArr = loc.search.slice(1).split('&');
     const session = {};
@@ -56,7 +60,8 @@ const LogInPage = () => {
           password: Yup.string().min(6).required('Обязательно'),
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          dispatch(login(values));
+          handleSubmit(values);
+
           setSubmitting(false);
           resetForm();
         }}

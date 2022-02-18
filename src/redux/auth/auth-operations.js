@@ -33,14 +33,10 @@ export const currentUser = createAsyncThunk(
   async (_, { getState, rejectWithValue, dispatch }) => {
     let persistedToken;
     persistedToken = getState()?.auth?.session?.token;
-    // {
-    //   auth: {
-    //     session: { token: persistedToken },
-    //   },
-    // } = getState();
     if (!persistedToken) {
       return rejectWithValue();
     }
+    console.log(persistedToken);
     token.set(persistedToken);
 
     try {
