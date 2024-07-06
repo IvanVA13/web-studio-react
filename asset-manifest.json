@@ -16,8 +16,8 @@
     "login-page.js": "/web-studio-react/static/js/login-page.7fc4f5c0.chunk.js",
     "login-page.js.map": "/web-studio-react/static/js/login-page.7fc4f5c0.chunk.js.map",
     "main.css": "/web-studio-react/static/css/main.16ba68a6.chunk.css",
-    "main.js": "/web-studio-react/static/js/main.47f8ce46.chunk.js",
-    "main.js.map": "/web-studio-react/static/js/main.47f8ce46.chunk.js.map",
+    "main.js": "/web-studio-react/static/js/main.8fa663b9.chunk.js",
+    "main.js.map": "/web-studio-react/static/js/main.8fa663b9.chunk.js.map",
     "orders-page.css": "/web-studio-react/static/css/orders-page.91ae407f.chunk.css",
     "orders-page.js": "/web-studio-react/static/js/orders-page.33c6042d.chunk.js",
     "orders-page.js.map": "/web-studio-react/static/js/orders-page.33c6042d.chunk.js.map",
@@ -69,6 +69,6 @@
     "static/css/16.c79dbdbc.chunk.css",
     "static/js/16.a128c0a0.chunk.js",
     "static/css/main.16ba68a6.chunk.css",
-    "static/js/main.47f8ce46.chunk.js"
+    "static/js/main.8fa663b9.chunk.js"
   ]
 }
