@@ -15,7 +15,7 @@
     "login-page.css": "/web-studio-react/static/css/login-page.3f54d4f1.chunk.css",
     "login-page.js": "/web-studio-react/static/js/login-page.7fc4f5c0.chunk.js",
     "login-page.js.map": "/web-studio-react/static/js/login-page.7fc4f5c0.chunk.js.map",
-    "main.css": "/web-studio-react/static/css/main.16ba68a6.chunk.css",
+    "main.css": "/web-studio-react/static/css/main.cbdc19db.chunk.css",
     "main.js": "/web-studio-react/static/js/main.8fa663b9.chunk.js",
     "main.js.map": "/web-studio-react/static/js/main.8fa663b9.chunk.js.map",
     "orders-page.css": "/web-studio-react/static/css/orders-page.91ae407f.chunk.css",
@@ -51,7 +51,7 @@
     "static/css/forgotten-page.3f54d4f1.chunk.css.map": "/web-studio-react/static/css/forgotten-page.3f54d4f1.chunk.css.map",
     "static/css/home-page.3a62ffd0.chunk.css.map": "/web-studio-react/static/css/home-page.3a62ffd0.chunk.css.map",
     "static/css/login-page.3f54d4f1.chunk.css.map": "/web-studio-react/static/css/login-page.3f54d4f1.chunk.css.map",
-    "static/css/main.16ba68a6.chunk.css.map": "/web-studio-react/static/css/main.16ba68a6.chunk.css.map",
+    "static/css/main.cbdc19db.chunk.css.map": "/web-studio-react/static/css/main.cbdc19db.chunk.css.map",
     "static/css/orders-page.91ae407f.chunk.css.map": "/web-studio-react/static/css/orders-page.91ae407f.chunk.css.map",
     "static/css/portfolio-list-page.4ca768c4.chunk.css.map": "/web-studio-react/static/css/portfolio-list-page.4ca768c4.chunk.css.map",
     "static/css/portfolio-page.3edd8437.chunk.css.map": "/web-studio-react/static/css/portfolio-page.3edd8437.chunk.css.map",
@@ -68,7 +68,7 @@
     "static/js/runtime-main.23b500b6.js",
     "static/css/16.c79dbdbc.chunk.css",
     "static/js/16.a128c0a0.chunk.js",
-    "static/css/main.16ba68a6.chunk.css",
+    "static/css/main.cbdc19db.chunk.css",
     "static/js/main.8fa663b9.chunk.js"
   ]
 }
