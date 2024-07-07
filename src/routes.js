@@ -1,5 +1,5 @@
 const routes = {
-  serverUrl: 'https://wsbend.up.railway.app//api',
+  serverUrl: 'https://wsbend.up.railway.app/api',
   // serverUrl: 'http://localhost:3000/api',
   basename: '/web-studio-react',
   home: '/',

@@ -15,11 +15,6 @@
     background-color: $second-accent-color;
     border-radius: 4px;
     box-shadow: (2px 2px 2px 2px rgba(0, 0, 0, 0.15));
-    transition: box-shadow $animation;
-
-    &:hover {
-      box-shadow: (4px 4px 4px 4px rgba(0, 0, 0, 0.15));
-    }
   }
 
   &-list {

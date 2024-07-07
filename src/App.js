@@ -56,6 +56,10 @@ const SettingsPage = lazy(() =>
   import('./views/SettingsPage' /* webpackChunkName: "settings-page" */),
 );
 
+const Test = lazy(() =>
+  import('./views/Test' /* webpackChunkName: "Test-page" */),
+);
+
 const forAllRoutes = [
   { path: routes.home, name: 'Home', Component: HomePage },
   {
@@ -82,6 +86,11 @@ const forAllRoutes = [
     path: routes.verifyId,
     name: 'Verify',
     Component: VerifyPage,
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    Component: Test,
   },
 ];
 const limitedRoutes = [

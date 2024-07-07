@@ -1,26 +1,35 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './OrderList.module.scss';
 import Container from '../Wrappers/Container';
-import { useSelector } from 'react-redux';
+import Confirm from '../Confirm/Confirm';
 import {
   fetchOrders,
   getAllOrders,
   updateOrderStatus,
 } from '../../redux/orders';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import styles from './OrderList.module.scss';
 
 export const OrderList = () => {
+  const [toggleModal, setToggleModal] = useState(false);
+  const [orderId, setOrderId] = useState('');
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchOrders());
   }, [dispatch]);
 
   const orders = useSelector(getAllOrders);
-  const handleClick = e => {
-    dispatch(updateOrderStatus(e.currentTarget.id));
+  const cancelOrderClick = () => {
+    dispatch(updateOrderStatus(orderId));
+    setToggleModal(prevToggle => !prevToggle);
   };
+  const toggleModalClick = e => {
+    if (e?.currentTarget?.id) {
+      setOrderId(e.currentTarget.id);
+    }
+    setToggleModal(prevToggle => !prevToggle);
+  };
+
   return (
     <Container type="order">
       <h2 className={styles['order-title']}>Заказы</h2>
@@ -73,7 +82,7 @@ export const OrderList = () => {
                   type="button"
                   id={_id}
                   disabled={status === 'new' ? false : true}
-                  onClick={handleClick}
+                  onClick={toggleModalClick}
                 >
                   Отменить заказ
                 </button>
@@ -82,6 +91,14 @@ export const OrderList = () => {
           );
         })}
       </ul>
+      {toggleModal && (
+        <Confirm
+          title="Вы точно хотите отменить заказ?"
+          closeModal={toggleModalClick}
+          confirmAct={cancelOrderClick}
+          posAbsolute={true}
+        />
+      )}
     </Container>
   );
 };

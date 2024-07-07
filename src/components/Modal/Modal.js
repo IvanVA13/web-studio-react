@@ -68,7 +68,7 @@ const Modal = ({ handleClick }) => {
   };
 
   return createPortal(
-    <Backdrop closeFunc={handleClick} toggle={true}>
+    <Backdrop closeFunc={handleClick} toggle>
       <div className={styles.modal}>
         <button
           name="close"

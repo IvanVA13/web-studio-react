@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { FaRegRegistered, FaClipboardList } from 'react-icons/fa';
@@ -6,11 +6,12 @@ import { FiLogIn, FiSettings } from 'react-icons/fi';
 import { ImExit } from 'react-icons/im';
 
 import { logout } from '../../redux/auth';
-import styles from './UserMenu.module.scss';
-import Container from '../Wrappers/Container';
 import { getIsAuthenticated } from '../../redux/auth';
+import Container from '../Wrappers/Container';
 import User from '../User';
 import useWindowDimensions from '../../helpers/useWindowDimensions';
+import styles from './UserMenu.module.scss';
+import Confirm from '../Confirm/Confirm';
 
 const userMenuData = [
   {
@@ -51,53 +52,67 @@ const userMenuData = [
 ];
 
 const UserMenu = ({ closeUserMenu }) => {
+  const [toggleModal, setToggleModal] = useState(false);
   const isLogIn = useSelector(getIsAuthenticated);
   const { width } = useWindowDimensions();
   const dispatch = useDispatch();
-  const handleClick = e => {
-    if (e.currentTarget.getAttribute('act') === 'logout') {
-      dispatch(logout());
-    }
+  const logoutClick = () => {
+    dispatch(logout());
     closeUserMenu();
+  };
+  const toggleModalClick = () => {
+    setToggleModal(prevToggle => !prevToggle);
   };
   return (
     <Container type="no-click">
       <div className={styles['user-menu']}>
         {isLogIn && width >= 768 && <User />}
-        <ul className={styles['user-menu-list']}>
-          {userMenuData
-            .filter(
-              item =>
-                (item.route === 'public' && !isLogIn) ||
-                (item.route === 'private' && isLogIn),
-            )
-            .map(({ name, icon, title, type }, i) => {
-              return (
-                <li
-                  act={name}
-                  className={styles['user-menu-item']}
-                  key={i}
-                  onClick={handleClick}
-                >
-                  {type === 'link' && (
-                    <NavLink
-                      className={styles['user-menu-link']}
-                      to={`/${name}`}
-                    >
-                      {icon}
-                      <span className={styles['user-menu-title']}>{title}</span>
-                    </NavLink>
-                  )}
-                  {type !== 'link' && (
-                    <button className={styles['user-menu-btn']} type="button">
-                      {icon}
-                      <span className={styles['user-menu-title']}>{title}</span>
-                    </button>
-                  )}
-                </li>
-              );
-            })}
-        </ul>
+        {toggleModal ? (
+          <Confirm
+            title="Вы точно хотите выйти?"
+            confirmAct={logoutClick}
+            closeModal={toggleModalClick}
+          />
+        ) : (
+          <ul className={styles['user-menu-list']}>
+            {userMenuData
+              .filter(
+                item =>
+                  (item.route === 'public' && !isLogIn) ||
+                  (item.route === 'private' && isLogIn),
+              )
+              .map(({ name, icon, title, type }, i) => {
+                return (
+                  <li className={styles['user-menu-item']} key={i}>
+                    {type === 'link' && (
+                      <NavLink
+                        className={styles['user-menu-link']}
+                        to={`/${name}`}
+                        onClick={closeUserMenu}
+                      >
+                        {icon}
+                        <span className={styles['user-menu-title']}>
+                          {title}
+                        </span>
+                      </NavLink>
+                    )}
+                    {type !== 'link' && (
+                      <button
+                        className={styles['user-menu-btn']}
+                        type="button"
+                        onClick={toggleModalClick}
+                      >
+                        {icon}
+                        <span className={styles['user-menu-title']}>
+                          {title}
+                        </span>
+                      </button>
+                    )}
+                  </li>
+                );
+              })}
+          </ul>
+        )}
       </div>
     </Container>
   );
